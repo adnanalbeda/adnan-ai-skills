@@ -1,0 +1,633 @@
+{
+  "version": 3,
+  "skills": {
+    "cavecrew": {
+      "source": "juliusbrussee/caveman",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/juliusbrussee/caveman.git",
+      "skillPath": "skills/cavecrew/SKILL.md",
+      "skillFolderHash": "de99644a837172940aefcfab4e51f19344ba98df",
+      "installedAt": "2026-05-01T16:35:30.280Z",
+      "updatedAt": "2026-05-18T22:41:15.804Z"
+    },
+    "caveman": {
+      "source": "juliusbrussee/caveman",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/juliusbrussee/caveman.git",
+      "skillPath": "skills/caveman/SKILL.md",
+      "skillFolderHash": "75b63aa9ec7bbb0e72bb6b3524ff6b576c14a05a",
+      "installedAt": "2026-05-01T16:35:30.290Z",
+      "updatedAt": "2026-05-18T22:41:15.819Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "3013fdeb8a11b10b1eb795ec3ae8bfca38f7c26d",
+      "installedAt": "2026-05-01T16:35:42.286Z",
+      "updatedAt": "2026-05-01T16:35:42.286Z"
+    },
+    "caveman-stats": {
+      "source": "JuliusBrussee/caveman",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
+      "skillPath": "skills/caveman-stats/SKILL.md",
+      "skillFolderHash": "b18f5f97d4c5234dfa45bf8e0f155cdcc7755d04",
+      "installedAt": "2026-05-01T17:52:45.953Z",
+      "updatedAt": "2026-05-01T17:52:45.953Z"
+    },
+    "caveman-compress": {
+      "source": "JuliusBrussee/caveman",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
+      "skillPath": "caveman-compress/SKILL.md",
+      "skillFolderHash": "eb81d1ed6ddeb1767f56817572c232e66bdc1167",
+      "installedAt": "2026-05-01T17:52:45.967Z",
+      "updatedAt": "2026-05-01T17:52:45.967Z"
+    },
+    "80-20-review": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/80-20-review/SKILL.md",
+      "skillFolderHash": "00269ecb08a03c43af7bba967aa2b697ad87073b",
+      "installedAt": "2026-05-17T11:33:20.140Z",
+      "updatedAt": "2026-05-17T11:33:20.140Z"
+    },
+    "api-versioning": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/api-versioning/SKILL.md",
+      "skillFolderHash": "ab2030de1a368f124c702b1fb159f2f13df93e13",
+      "installedAt": "2026-05-17T11:33:20.152Z",
+      "updatedAt": "2026-05-17T11:33:20.152Z"
+    },
+    "architecture-advisor": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/architecture-advisor/SKILL.md",
+      "skillFolderHash": "1a64772de3edfb8b85b70e0a61a811e80f35c470",
+      "installedAt": "2026-05-17T11:33:20.163Z",
+      "updatedAt": "2026-05-17T11:33:20.163Z"
+    },
+    "aspire": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/aspire/SKILL.md",
+      "skillFolderHash": "4280f16194baf53fd846cb57a667ef539d6b8305",
+      "installedAt": "2026-05-17T11:33:20.174Z",
+      "updatedAt": "2026-05-17T11:33:20.174Z"
+    },
+    "authentication": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/authentication/SKILL.md",
+      "skillFolderHash": "bbd47d6038dc2d8b69f8ce5fda2758f841ec1e7a",
+      "installedAt": "2026-05-17T11:33:20.186Z",
+      "updatedAt": "2026-05-17T11:33:20.186Z"
+    },
+    "autonomous-loops": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/autonomous-loops/SKILL.md",
+      "skillFolderHash": "961252910932edb03ec85fd3c03c5ebf83dc63e7",
+      "installedAt": "2026-05-17T11:33:20.199Z",
+      "updatedAt": "2026-05-17T11:33:20.199Z"
+    },
+    "caching": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/caching/SKILL.md",
+      "skillFolderHash": "82264dcf99fe462856390585696d22ac35d641d7",
+      "installedAt": "2026-05-17T11:33:20.211Z",
+      "updatedAt": "2026-05-17T11:33:20.211Z"
+    },
+    "ci-cd": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/ci-cd/SKILL.md",
+      "skillFolderHash": "f9c850575182fda344d28beac77b5c3870e166fe",
+      "installedAt": "2026-05-17T11:33:20.222Z",
+      "updatedAt": "2026-05-17T11:33:20.222Z"
+    },
+    "clean-architecture": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/clean-architecture/SKILL.md",
+      "skillFolderHash": "4b70b412403fc94791c5c897818901f562978e5e",
+      "installedAt": "2026-05-17T11:33:20.235Z",
+      "updatedAt": "2026-05-17T11:33:20.235Z"
+    },
+    "code-review-workflow": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/code-review-workflow/SKILL.md",
+      "skillFolderHash": "a42443deb51ee2b02e8ba3bddae4a90af61d4c0f",
+      "installedAt": "2026-05-17T11:33:20.247Z",
+      "updatedAt": "2026-05-17T11:33:20.247Z"
+    },
+    "configuration": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/configuration/SKILL.md",
+      "skillFolderHash": "4c407fb35a8fca74eed7d3ca8a88f080c29947f6",
+      "installedAt": "2026-05-17T11:33:20.259Z",
+      "updatedAt": "2026-05-17T11:33:20.259Z"
+    },
+    "container-publish": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/container-publish/SKILL.md",
+      "skillFolderHash": "214b48ac562d88133aff79134443ac512b3754a3",
+      "installedAt": "2026-05-17T11:33:20.272Z",
+      "updatedAt": "2026-05-17T11:33:20.272Z"
+    },
+    "context-discipline": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/context-discipline/SKILL.md",
+      "skillFolderHash": "2f806eecb3483495c8e118f0cf895a8a4b0ded84",
+      "installedAt": "2026-05-17T11:33:20.284Z",
+      "updatedAt": "2026-05-17T11:33:20.284Z"
+    },
+    "convention-learner": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/convention-learner/SKILL.md",
+      "skillFolderHash": "33172072ec8b104f5d6a048729bdaa5088248f5f",
+      "installedAt": "2026-05-17T11:33:20.295Z",
+      "updatedAt": "2026-05-17T11:33:20.295Z"
+    },
+    "ddd": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/ddd/SKILL.md",
+      "skillFolderHash": "2a97ce33b076e16fa83618f2b707f53fb2550445",
+      "installedAt": "2026-05-17T11:33:20.308Z",
+      "updatedAt": "2026-05-17T11:33:20.308Z"
+    },
+    "de-sloppify": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/de-sloppify/SKILL.md",
+      "skillFolderHash": "7e16e414a2b0e4d53dd8c749b528032c9153f23b",
+      "installedAt": "2026-05-17T11:33:20.320Z",
+      "updatedAt": "2026-05-17T11:33:20.320Z"
+    },
+    "dependency-injection": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/dependency-injection/SKILL.md",
+      "skillFolderHash": "945647700e1b0d354d14b36c3b8314c70ecfeb8b",
+      "installedAt": "2026-05-17T11:33:20.332Z",
+      "updatedAt": "2026-05-17T11:33:20.332Z"
+    },
+    "docker": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/docker/SKILL.md",
+      "skillFolderHash": "cbe23661c79a1e854f91ff2fb4dd03490b3430ef",
+      "installedAt": "2026-05-17T11:33:20.344Z",
+      "updatedAt": "2026-05-17T11:33:20.344Z"
+    },
+    "ef-core": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/ef-core/SKILL.md",
+      "skillFolderHash": "9f9ef80c3e6a43b5000ea7d245c70652e46c8f86",
+      "installedAt": "2026-05-17T11:33:20.356Z",
+      "updatedAt": "2026-05-17T11:33:20.356Z"
+    },
+    "error-handling": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/error-handling/SKILL.md",
+      "skillFolderHash": "fe98612c8c41714fb304f6725c5ba5a9c073da9b",
+      "installedAt": "2026-05-17T11:33:20.368Z",
+      "updatedAt": "2026-05-17T11:33:20.368Z"
+    },
+    "health-check": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/health-check/SKILL.md",
+      "skillFolderHash": "7ded7949e79477027c0bbd63e12d63649f72a350",
+      "installedAt": "2026-05-17T11:33:20.380Z",
+      "updatedAt": "2026-05-17T11:33:20.380Z"
+    },
+    "httpclient-factory": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/httpclient-factory/SKILL.md",
+      "skillFolderHash": "e43e352c17fb27332a7d7087cd56ca0ae3b1fce1",
+      "installedAt": "2026-05-17T11:33:20.394Z",
+      "updatedAt": "2026-05-17T11:33:20.394Z"
+    },
+    "instinct-system": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/instinct-system/SKILL.md",
+      "skillFolderHash": "165a9b8dd2ac3a8b804bc118502a94691504a0d8",
+      "installedAt": "2026-05-17T11:33:20.406Z",
+      "updatedAt": "2026-05-17T11:33:20.406Z"
+    },
+    "learning-log": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/learning-log/SKILL.md",
+      "skillFolderHash": "3bef523789e3ea64ccf9bd972e7051bf60f7b9c1",
+      "installedAt": "2026-05-17T11:33:20.419Z",
+      "updatedAt": "2026-05-17T11:33:20.419Z"
+    },
+    "logging": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/logging/SKILL.md",
+      "skillFolderHash": "becfa7e95373ceaec0a50828542a3868d6e73fef",
+      "installedAt": "2026-05-17T11:33:20.432Z",
+      "updatedAt": "2026-05-17T11:33:20.432Z"
+    },
+    "messaging": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/messaging/SKILL.md",
+      "skillFolderHash": "b3ef3b7cb2996b8e469a05f8ab6e334f4c59c15c",
+      "installedAt": "2026-05-17T11:33:20.445Z",
+      "updatedAt": "2026-05-17T11:33:20.445Z"
+    },
+    "migration-workflow": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/migration-workflow/SKILL.md",
+      "skillFolderHash": "3bc8b1be2738c99c5ffc676c0b19f5c2ceb14315",
+      "installedAt": "2026-05-17T11:33:20.457Z",
+      "updatedAt": "2026-05-17T11:33:20.457Z"
+    },
+    "minimal-api": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/minimal-api/SKILL.md",
+      "skillFolderHash": "8edac8d0f508f2d434120307a9057cccbde91567",
+      "installedAt": "2026-05-17T11:33:20.471Z",
+      "updatedAt": "2026-05-17T11:33:20.471Z"
+    },
+    "model-selection": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/model-selection/SKILL.md",
+      "skillFolderHash": "3502e2c985c31b52f2dc88f45ae5fdca4c404ab2",
+      "installedAt": "2026-05-17T11:33:20.484Z",
+      "updatedAt": "2026-05-17T11:33:20.484Z"
+    },
+    "modern-csharp": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/modern-csharp/SKILL.md",
+      "skillFolderHash": "39aa9a150ae08b52864c8fbda1ba7adacdced92e",
+      "installedAt": "2026-05-17T11:33:20.497Z",
+      "updatedAt": "2026-05-17T11:33:20.497Z"
+    },
+    "openapi": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/openapi/SKILL.md",
+      "skillFolderHash": "2fa224f7102722622df8bc811676067f441be204",
+      "installedAt": "2026-05-17T11:33:20.510Z",
+      "updatedAt": "2026-05-17T11:33:20.510Z"
+    },
+    "opentelemetry": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/opentelemetry/SKILL.md",
+      "skillFolderHash": "0f4e1f4196bcb5dade3ac3877bfbe15a3622b4a4",
+      "installedAt": "2026-05-17T11:33:20.523Z",
+      "updatedAt": "2026-05-17T11:33:20.523Z"
+    },
+    "project-setup": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/project-setup/SKILL.md",
+      "skillFolderHash": "df6c487ae5d17ac71c40473cf9230d85088e1f2d",
+      "installedAt": "2026-05-17T11:33:20.536Z",
+      "updatedAt": "2026-05-17T11:33:20.536Z"
+    },
+    "project-structure": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/project-structure/SKILL.md",
+      "skillFolderHash": "ad108d12b4d6112b391a00315d4c32ad48a2ed52",
+      "installedAt": "2026-05-17T11:33:20.548Z",
+      "updatedAt": "2026-05-17T11:33:20.548Z"
+    },
+    "resilience": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/resilience/SKILL.md",
+      "skillFolderHash": "19b85c1c99003da3d49822366986621e51069aa1",
+      "installedAt": "2026-05-17T11:33:20.560Z",
+      "updatedAt": "2026-05-17T11:33:20.560Z"
+    },
+    "scaffolding": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/scaffolding/SKILL.md",
+      "skillFolderHash": "250c40ba72ed32b74c78640517d598c6828f983c",
+      "installedAt": "2026-05-17T11:33:20.575Z",
+      "updatedAt": "2026-05-17T11:33:20.575Z"
+    },
+    "scalar": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/scalar/SKILL.md",
+      "skillFolderHash": "6d11b3467e4c3c57bd6ad408220a0612b383614f",
+      "installedAt": "2026-05-17T11:33:20.593Z",
+      "updatedAt": "2026-05-17T11:33:20.593Z"
+    },
+    "security-scan": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/security-scan/SKILL.md",
+      "skillFolderHash": "d1d45d4dfd37b85c58650d0496d752ce43304079",
+      "installedAt": "2026-05-17T11:33:20.606Z",
+      "updatedAt": "2026-05-17T11:33:20.606Z"
+    },
+    "self-correction-loop": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/self-correction-loop/SKILL.md",
+      "skillFolderHash": "c3db8e2b73948f90e3d2a6f34cb6aed677a0e5e2",
+      "installedAt": "2026-05-17T11:33:20.619Z",
+      "updatedAt": "2026-05-17T11:33:20.619Z"
+    },
+    "serilog": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/serilog/SKILL.md",
+      "skillFolderHash": "1e3a095814aaf54a9c747536d80ec6a005ab660d",
+      "installedAt": "2026-05-17T11:33:20.631Z",
+      "updatedAt": "2026-05-17T11:33:20.631Z"
+    },
+    "session-management": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/session-management/SKILL.md",
+      "skillFolderHash": "948b5560fada7d4ee85b9eed3ae1d85fb99814ba",
+      "installedAt": "2026-05-17T11:33:20.646Z",
+      "updatedAt": "2026-05-17T11:33:20.646Z"
+    },
+    "split-memory": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/split-memory/SKILL.md",
+      "skillFolderHash": "d41891f06c2455e8214b9fa08892669955befc82",
+      "installedAt": "2026-05-17T11:33:20.659Z",
+      "updatedAt": "2026-05-17T11:33:20.659Z"
+    },
+    "testing": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/testing/SKILL.md",
+      "skillFolderHash": "3520e71c63c5c5502178236f8ed2bf90822c77ce",
+      "installedAt": "2026-05-17T11:33:20.671Z",
+      "updatedAt": "2026-05-17T11:33:20.671Z"
+    },
+    "verification-loop": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/verification-loop/SKILL.md",
+      "skillFolderHash": "e1f8cdda6f11ddb54684c3b97215dd232b17d49b",
+      "installedAt": "2026-05-17T11:33:20.683Z",
+      "updatedAt": "2026-05-17T11:33:20.683Z"
+    },
+    "vertical-slice": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/vertical-slice/SKILL.md",
+      "skillFolderHash": "c12e1c2b46f041f6a06bbc0c3a1122e4f930125b",
+      "installedAt": "2026-05-17T11:33:20.695Z",
+      "updatedAt": "2026-05-17T11:33:20.695Z"
+    },
+    "workflow-mastery": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/workflow-mastery/SKILL.md",
+      "skillFolderHash": "f59cf78a77cca71f78bdce843f49225b6d10b82d",
+      "installedAt": "2026-05-17T11:33:20.707Z",
+      "updatedAt": "2026-05-17T11:33:20.707Z"
+    },
+    "wrap-up-ritual": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/codewithmukesh/dotnet-claude-kit.git",
+      "skillPath": "skills/wrap-up-ritual/SKILL.md",
+      "skillFolderHash": "1640104ed06e8363505ff1cc9e737b5193c55acd",
+      "installedAt": "2026-05-17T11:33:20.720Z",
+      "updatedAt": "2026-05-17T11:33:20.720Z"
+    },
+    "grill-me": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/grill-me/SKILL.md",
+      "skillFolderHash": "2a1ad17028306ebe45f0e49703fa28b9b2e7f499",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T18:25:41.628Z",
+      "updatedAt": "2026-05-18T21:43:11.397Z"
+    },
+    "grill-with-docs": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/grill-with-docs/SKILL.md",
+      "skillFolderHash": "3c4ac970c404e8d32c24f2725bfe679e455a925b",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T18:25:41.641Z",
+      "updatedAt": "2026-05-18T21:43:11.409Z"
+    },
+    "diagnose": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/diagnose/SKILL.md",
+      "skillFolderHash": "43d464d0e9d1049b9d525975c0f7367ab7e01a5f",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T18:25:41.653Z",
+      "updatedAt": "2026-05-18T22:43:04.535Z"
+    },
+    "improve-codebase-architecture": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/improve-codebase-architecture/SKILL.md",
+      "skillFolderHash": "3ad8fa787b3b9b622d1f5a3d0afc27812ac782fa",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T18:25:41.664Z",
+      "updatedAt": "2026-05-18T22:43:04.549Z"
+    },
+    "handoff": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/handoff/SKILL.md",
+      "skillFolderHash": "85c644da8f99d073b434261f1e3fc058e2116236",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T18:25:41.676Z",
+      "updatedAt": "2026-05-17T18:25:41.676Z"
+    },
+    "to-issues": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/to-issues/SKILL.md",
+      "skillFolderHash": "b38c5aa6ae5d6903e60d3f74a7aafd32d02f2c06",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T18:25:41.688Z",
+      "updatedAt": "2026-05-18T22:43:04.575Z"
+    },
+    "to-prd": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/to-prd/SKILL.md",
+      "skillFolderHash": "d6eff3e99a325d2d9c2acbe31b4d76fa5340a154",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T18:25:41.699Z",
+      "updatedAt": "2026-05-18T22:43:04.588Z"
+    },
+    "tdd": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/tdd/SKILL.md",
+      "skillFolderHash": "75beb3030b4c979205dd771ff85ac600baeb68f4",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T18:25:41.711Z",
+      "updatedAt": "2026-05-18T22:43:04.562Z"
+    },
+    "prototype": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/prototype/SKILL.md",
+      "skillFolderHash": "c91bdc5d02d42ed88a3082a8fa83338895b55bd4",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T18:25:41.723Z",
+      "updatedAt": "2026-05-18T21:43:11.508Z"
+    },
+    "triage": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/triage/SKILL.md",
+      "skillFolderHash": "de4f182c30876a2460ca307e2f601b9b892527e5",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T18:25:41.735Z",
+      "updatedAt": "2026-05-17T18:25:41.735Z"
+    },
+    "write-a-skill": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/write-a-skill/SKILL.md",
+      "skillFolderHash": "2f252b35aa238879afc5a230ac30343708dee0b3",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T18:25:41.746Z",
+      "updatedAt": "2026-05-18T21:43:11.482Z"
+    },
+    "zoom-out": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/zoom-out/SKILL.md",
+      "skillFolderHash": "6ecebabdea814d12888f56a611da7bf182b5fb26",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T18:25:41.758Z",
+      "updatedAt": "2026-05-18T22:43:04.601Z"
+    },
+    "caveman-commit": {
+      "source": "juliusbrussee/caveman",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/juliusbrussee/caveman.git",
+      "skillPath": "skills/caveman-commit/SKILL.md",
+      "skillFolderHash": "34e52a2870460e4ed4b79049d5a2569097c0710e",
+      "installedAt": "2026-05-18T22:41:15.832Z",
+      "updatedAt": "2026-05-18T22:41:15.832Z"
+    },
+    "caveman-help": {
+      "source": "juliusbrussee/caveman",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/juliusbrussee/caveman.git",
+      "skillPath": "skills/caveman-help/SKILL.md",
+      "skillFolderHash": "91d43545d1f02e9ef95051b42ee562867362fe6e",
+      "installedAt": "2026-05-18T22:41:15.847Z",
+      "updatedAt": "2026-05-18T22:41:15.847Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "dexto",
+    "firebender",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode",
+    "warp",
+    "continue",
+    "openclaw",
+    "roo",
+    "windsurf"
+  ]
+}
