@@ -11,9 +11,9 @@ This is a duplicate of `grill-me` with a different interaction style: keep the s
 
 ## Start rule
 
-First, ask whether the user really wanted to use this skill, or meant to use `grill-with-docs` instead.
+First, ask whether the user really wanted to use this skill, or meant to use `lazy-docs` instead.
 
-Use `grill-with-docs` when the plan should be challenged against existing repo docs, domain language, `CONTEXT.md`, ADRs, or implementation conventions. Use `lazy-grill` when the user wants a conversational design interrogation with lazy choice navigation.
+Use `lazy-docs` when the plan should be challenged against existing repo docs, domain language, `CONTEXT.md`, ADRs, or implementation conventions. Use `lazy-grill` when the user wants a conversational design interrogation with lazy choice navigation.
 
 ## Core rules
 

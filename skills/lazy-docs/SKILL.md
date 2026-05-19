@@ -7,9 +7,11 @@ description: Lazy, choice-driven grilling session that challenges your plan agai
 
 Use `lazy-grill` interaction style while doing docs-aware grilling: interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
 
+This skill is the docs-aware variant of `lazy-grill`. Do not redirect to plain `lazy-grill` or `grill-with-docs`; apply the lazy-grill active-recommendation flow inside the docs-aware workflow.
+
 Ask the questions one at a time, waiting for feedback on each question before continuing.
 
-If the question/choice tool is available, use the `lazy-grill` active-recommendation flow instead of normal choice lists: list all candidate answers in the message, show the active recommendation with a small useful demonstration, then offer `Yes`, `Next`, `Prev` when applicable, and `Other`/custom answer.
+If the question/choice tool is available, use the `lazy-grill` active-recommendation flow instead of normal choice lists: list all candidate answers in the message, show the active recommendation with a small useful demonstration, then offer `Yes`, `Accept recommendation`, or `Choose this` for acceptance; `Next` and `Prev` for navigation; `Suggest Other Options` for agent-generated alternatives; and the freeform custom-answer input for user-supplied answers.
 
 If a question can be answered by exploring the codebase, explore the codebase instead.
 
@@ -30,15 +32,19 @@ Then call the question/choice tool with navigation choices for the active recomm
 - Middle candidate: `Yes`, `Next`, `Prev`, and `Suggest Other Options`.
 - Last candidate: `Yes`, `Prev`, and `Suggest Other Options`. Do not wrap to the first option. If the user rejects the last candidate, ask them to suggest other options.
 
-`Yes` means accept the active recommendation as the answer. Record a one-line decision note, update docs immediately if the decision resolves domain language or an ADR-worthy choice, then continue to the next unresolved question.
+If the design question itself is a yes/no decision, avoid confusing labels like "Yes to yes". Rename the acceptance action to `Accept recommendation` or `Choose this`, and phrase candidates as concrete outcomes such as `Create it` / `Skip it`, `Use X` / `Do not use X`, or `Record ADR` / `No ADR`. Keep `Next`, `Prev`, and `Suggest Other Options` for navigation.
+
+`Yes`, `Accept recommendation`, or `Choose this` means accept the active recommendation as the answer. Record a one-line decision note, update docs immediately if the decision resolves domain language or an ADR-worthy choice, then continue to the next unresolved question.
 
 `Next` means show the next recommended candidate using the same setup, demo, and tool flow.
 
-`Prev` means return to the previous recommended candidate. If the user then chooses `Yes` on that previous candidate, double-confirm before accepting it.
+`Prev` means return to the previous recommended candidate. If the user then accepts that previous candidate, double-confirm before accepting it.
 
 `Suggest Other Options` means the agent should think of additional candidate answers, add them to the candidate list, rank them against the existing options, then show the best new active recommendation with the same setup/demo/tool flow. It does not mean asking the user for custom text.
 
 If the user wants to provide their own answer, use the question tool's freeform custom-answer input. Restate the custom answer as a precise decision and ask for confirmation before recording or writing docs.
+
+If the custom answer appears to select an existing candidate by number, label, or short name, treat it as navigation to that candidate instead of a freeform decision. Show that candidate as the active recommendation using the same setup/demo/tool flow, then ask for confirmation with `Yes`, `Accept recommendation`, or `Choose this` before recording or writing docs.
 
 Rank candidate answers before presenting them. The first candidate should be the best recommendation based on user goals, repo facts, existing docs, domain language, and engineering tradeoffs. Do not make all choices seem equal.
 

@@ -10,12 +10,29 @@ Use when the user says the connection dropped, the agent stopped mid-task, work 
 ## Recovery Order
 
 1. Use current conversation memory first when it is available.
-2. Verify memory against files, artifacts, and worktree state before editing or continuing.
-3. Read relevant breadcrumbs from `.agent/state/breadcrumbs/<agent-id>.md` when present.
-4. If no breadcrumb exists, reconstruct from available local evidence: user prompt, changed files, PRD/spec/issues, docs, logs, tests, and git status/diff when inside a git repo.
-5. Ask the user only when state remains ambiguous or the next action is risky.
+2. Look for a compact breadcrumb pointer in current context: `Recovery breadcrumb: .agent/state/breadcrumbs/<agent-id>.md`.
+3. If a pointer exists, read that exact breadcrumb first, then verify it matches the current recovery request before using it.
+4. Verify memory and breadcrumb facts against files, artifacts, and worktree state before editing or continuing.
+5. If no valid breadcrumb pointer exists, discover relevant breadcrumbs from `.agent/state/breadcrumbs/*.md`.
+6. If no breadcrumb exists, reconstruct from available local evidence: user prompt, changed files, PRD/spec/issues, docs, logs, tests, and git status/diff when inside a git repo.
+7. Ask the user only when state remains ambiguous or the next action is risky.
 
 ## Breadcrumb Discovery
+
+If current context includes this pointer, try it first:
+
+```text
+Recovery breadcrumb: .agent/state/breadcrumbs/<agent-id>.md
+```
+
+Treat the pointer as a hint, not proof. Before using it, verify:
+
+- The file exists inside `.agent/state/breadcrumbs/`.
+- The path and `Agent:` field align.
+- `Goal`, `Current phase`, and `Active files/artifacts` fit the user's recovery request.
+- `Current phase` is not `complete`, unless the user asks to inspect completed work.
+
+If the pointer is missing, stale, or mismatched, fall back to repo-local discovery.
 
 Look for repo-local breadcrumbs at:
 
@@ -25,7 +42,9 @@ Look for repo-local breadcrumbs at:
 
 If multiple breadcrumb files exist:
 
+- Prefer a verified breadcrumb from the context pointer.
 - Prefer the one matching the current user goal or referenced artifact.
+- Prefer active/incomplete work over completed work unless the user asks for history.
 - Otherwise prefer the most recently updated file.
 - If two or more plausible breadcrumbs conflict, summarize candidates and ask which to recover.
 

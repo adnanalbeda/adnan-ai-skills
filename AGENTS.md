@@ -27,16 +27,23 @@
 - For broad investigation, run 2-3 `cavecrew-investigator` agents in parallel with different search angles, then aggregate results in the main thread.
 - Do not use `cavecrew-builder` before locating the relevant files, and do not force cavecrew when its terse output would make user-facing results unclear.
 
+## Planning And Grilling Research
+
+- When any `grill-*`, `lazy-*`, or `plan-feature` skill is used, do not treat clear user instructions as enough by themselves. The user may be asking for help spotting whether the prompt or plan implies guideline violations, spec conflicts, weak assumptions, or known antipatterns.
+- Research relevant repo docs, existing conventions, official standards/specs, and known antipatterns before accepting, refining, or converting the prompt/plan. Challenge the plan against that evidence and surface conflicts or risks before proceeding.
+
 ## Breadcrumbs And Connection Recovery
 
 - Load `agent-breadcrumbs` at the start of long-running or interruption-prone work: planning pipelines, implementation tasks, multi-file edits, subagent orchestration, long tests/builds, reviews, or documentation generation.
 - Store breadcrumbs in the current repo/workspace at `.agent/state/breadcrumbs/<agent-id>.md`.
 - Use runtime/tool agent id for `<agent-id>` when available; otherwise use timestamp plus short task slug, for example `2026-05-19-1832-lazy-plan-feature.md`.
 - Maintain one breadcrumb file per concurrent agent/task. Never share one breadcrumb file between parallel agents.
+- When a breadcrumb is active, keep this compact pointer in session context: `Recovery breadcrumb: .agent/state/breadcrumbs/<agent-id>.md`.
+- Repeat the pointer after first write, at phase changes, before long commands/subagent calls, before stopping for a user decision, and in handoff or recovery summaries. Do not repeat it in every message.
 - Update breadcrumbs at task start, after each meaningful completed step, before risky phase changes, before long commands/subagent calls, after subagents return, and before stopping for a blocker or user decision.
 - Breadcrumbs must include: `Intent`, `Goal`, `Current phase`, `Last completed step`, `Active files/artifacts`, `Next safe action`, `Blockers`, `Verification status`, and `Last updated`.
 - Keep breadcrumbs concise. They are recovery indexes, not transcripts. Never store secrets, credentials, tokens, or private data.
 - Do not commit breadcrumb files unless the user explicitly asks.
 - Load `connection-recovery` when the user says the connection dropped, the agent stopped mid-task, work needs to be picked back up, or current context may be incomplete after interruption.
-- During recovery, use current conversation memory first, then verify with breadcrumbs, files, artifacts, worktree state, and relevant logs/tests before continuing.
+- During recovery, use current conversation memory first, parse any `Recovery breadcrumb:` pointer, verify it matches the current request, then fall back to breadcrumb discovery, files, artifacts, worktree state, and relevant logs/tests before continuing.
 - Recovery must summarize reconstructed state and ask before continuing. Do not silently continue after reconnect.

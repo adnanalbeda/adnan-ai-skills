@@ -24,6 +24,18 @@ Choose `<agent-id>` in this order:
 
 Create parent directories lazily when first writing the breadcrumb.
 
+## Recovery Pointer In Context
+
+Whenever a breadcrumb is active, keep this compact pointer available in the session context:
+
+```text
+Recovery breadcrumb: .agent/state/breadcrumbs/<agent-id>.md
+```
+
+Emit the pointer after the first breadcrumb write. Repeat it at recovery-sensitive moments: phase changes, before long commands or subagent calls, before stopping for a user decision, and in handoff or recovery summaries.
+
+Do not repeat it in every message. Keep the line exact and compact so `connection-recovery` can parse it after a drop. The pointer is only a lookup hint; recovery must still verify the breadcrumb before continuing.
+
 ## Required Fields
 
 Every breadcrumb must include:
