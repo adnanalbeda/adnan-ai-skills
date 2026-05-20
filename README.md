@@ -38,6 +38,10 @@ Use `connection-recovery` when work was interrupted, context may be incomplete, 
 
 Use this repo as the source for any skills CLI that installs from a local folder. The installable skill roots are under `skills/`.
 
-Remote publishing is intentionally not done by this repo setup. Add a remote and push only when you are ready to publish it.
+Install from `skills.sh` / the `skills` CLI with:
+
+```powershell
+pnpx skills add adnanalbeda/adnan-ai-skills
+```
 
 This workspace did not have a `skills` or `skill` executable on PATH when checked, so exact local install syntax depends on the CLI you use.

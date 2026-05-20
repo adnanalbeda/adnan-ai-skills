@@ -33,19 +33,19 @@ Before calling the question/choice tool, write a short setup that includes:
 - The active recommended answer.
 - The smallest useful demonstration for the active recommendation, such as a tiny code sample, folder tree, state flow, architecture sketch, before/after behavior, or example prompt.
 
-Then call the question/choice tool with navigation choices for the active recommendation:
+Then call the question/choice tool with acceptance and option-navigation choices for the active recommendation. Use dynamic option labels instead of generic forward/back labels so navigation cannot be mistaken for skipping to a later discussion point:
 
-- First candidate: `Yes`, `Next`, and `Suggest Other Options`.
-- Middle candidate: `Yes`, `Next`, `Prev`, and `Suggest Other Options`.
-- Last candidate: `Yes`, `Prev`, and `Suggest Other Options`. Do not wrap to the first option. If the user rejects the last candidate, ask them to suggest other options.
+- First candidate: `Yes`, `Show Option 2`, and `Suggest Other Options`.
+- Middle candidate: `Yes`, `Show Option <higher-number>`, `Show Option <lower-number>`, and `Suggest Other Options`.
+- Last candidate: `Yes`, `Show Option <lower-number>`, and `Suggest Other Options`. Do not wrap to the first option. If the user rejects the last candidate, ask them to suggest other options.
 
-If the design question itself is a yes/no decision, avoid confusing labels like "Yes to yes". Rename the acceptance action to `Accept recommendation` or `Choose this`, and phrase candidates as concrete outcomes such as `Enable it` / `Do not enable it`, `Create it` / `Skip it`, or `Use X` / `Do not use X`. Keep `Next`, `Prev`, and `Suggest Other Options` for navigation.
+If the design question itself is a yes/no decision, avoid confusing labels like "Yes to yes". Rename the acceptance action to `Accept recommendation` or `Choose this`, and phrase candidates as concrete outcomes such as `Enable it` / `Do not enable it`, `Create it` / `Skip it`, or `Use X` / `Do not use X`. Keep `Show Option N` and `Suggest Other Options` for navigation.
 
 `Yes`, `Accept recommendation`, or `Choose this` means accept the active recommendation as the answer. Record a one-line decision note, then immediately continue to the next unresolved question.
 
-`Next` means show the next recommended candidate using the same setup/demo/tool flow.
+`Show Option N` means show that numbered candidate using the same setup/demo/tool flow. It is option navigation for the current question, not permission to defer the question or move to a later discussion point.
 
-`Prev` means return to the previous recommended candidate. If the user then chooses `Yes` on that previous candidate, double-confirm before accepting it.
+If the user navigates backward with `Show Option N` and then chooses `Yes` on that previous candidate, double-confirm before accepting it.
 
 `Suggest Other Options` means the agent should think of additional candidate answers, add them to the candidate list, rank them against the existing options, then show the best new active recommendation with the same setup/demo/tool flow. It does not mean asking the user for custom text.
 

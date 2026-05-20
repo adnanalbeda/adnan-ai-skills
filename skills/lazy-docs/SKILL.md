@@ -11,7 +11,7 @@ This skill is the docs-aware variant of `lazy-grill`. Do not redirect to plain `
 
 Ask the questions one at a time, waiting for feedback on each question before continuing.
 
-If the question/choice tool is available, use the `lazy-grill` active-recommendation flow instead of normal choice lists: list all candidate answers in the message, show the active recommendation with a small useful demonstration, then offer `Yes`, `Accept recommendation`, or `Choose this` for acceptance; `Next` and `Prev` for navigation; `Suggest Other Options` for agent-generated alternatives; and the freeform custom-answer input for user-supplied answers.
+If the question/choice tool is available, use the `lazy-grill` active-recommendation flow instead of normal choice lists: list all candidate answers in the message, show the active recommendation with a small useful demonstration, then offer `Yes`, `Accept recommendation`, or `Choose this` for acceptance; dynamic `Show Option N` labels for option navigation; `Suggest Other Options` for agent-generated alternatives; and the freeform custom-answer input for user-supplied answers.
 
 If a question can be answered by exploring the codebase, explore the codebase instead.
 
@@ -26,19 +26,19 @@ Before calling the question/choice tool, write a short setup that includes:
 - The active recommended answer.
 - The smallest useful demonstration for the active recommendation, such as a tiny code sample, folder tree, state flow, architecture sketch, before/after behavior, domain example, glossary entry, or ADR snippet.
 
-Then call the question/choice tool with navigation choices for the active recommendation:
+Then call the question/choice tool with acceptance and option-navigation choices for the active recommendation. Use dynamic option labels instead of generic forward/back labels so navigation cannot be mistaken for skipping to a later discussion point:
 
-- First candidate: `Yes`, `Next`, and `Suggest Other Options`.
-- Middle candidate: `Yes`, `Next`, `Prev`, and `Suggest Other Options`.
-- Last candidate: `Yes`, `Prev`, and `Suggest Other Options`. Do not wrap to the first option. If the user rejects the last candidate, ask them to suggest other options.
+- First candidate: `Yes`, `Show Option 2`, and `Suggest Other Options`.
+- Middle candidate: `Yes`, `Show Option <higher-number>`, `Show Option <lower-number>`, and `Suggest Other Options`.
+- Last candidate: `Yes`, `Show Option <lower-number>`, and `Suggest Other Options`. Do not wrap to the first option. If the user rejects the last candidate, ask them to suggest other options.
 
-If the design question itself is a yes/no decision, avoid confusing labels like "Yes to yes". Rename the acceptance action to `Accept recommendation` or `Choose this`, and phrase candidates as concrete outcomes such as `Create it` / `Skip it`, `Use X` / `Do not use X`, or `Record ADR` / `No ADR`. Keep `Next`, `Prev`, and `Suggest Other Options` for navigation.
+If the design question itself is a yes/no decision, avoid confusing labels like "Yes to yes". Rename the acceptance action to `Accept recommendation` or `Choose this`, and phrase candidates as concrete outcomes such as `Create it` / `Skip it`, `Use X` / `Do not use X`, or `Record ADR` / `No ADR`. Keep `Show Option N` and `Suggest Other Options` for navigation.
 
 `Yes`, `Accept recommendation`, or `Choose this` means accept the active recommendation as the answer. Record a one-line decision note, update docs immediately if the decision resolves domain language or an ADR-worthy choice, then continue to the next unresolved question.
 
-`Next` means show the next recommended candidate using the same setup, demo, and tool flow.
+`Show Option N` means show that numbered candidate using the same setup, demo, and tool flow. It is option navigation for the current question, not permission to defer the question or move to a later discussion point.
 
-`Prev` means return to the previous recommended candidate. If the user then accepts that previous candidate, double-confirm before accepting it.
+If the user navigates backward with `Show Option N` and then accepts that previous candidate, double-confirm before accepting it.
 
 `Suggest Other Options` means the agent should think of additional candidate answers, add them to the candidate list, rank them against the existing options, then show the best new active recommendation with the same setup/demo/tool flow. It does not mean asking the user for custom text.
 
