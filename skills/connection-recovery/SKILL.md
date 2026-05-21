@@ -10,10 +10,10 @@ Use when the user says the connection dropped, the agent stopped mid-task, work 
 ## Recovery Order
 
 1. Use current conversation memory first when it is available.
-2. Look for a compact breadcrumb pointer in current context: `Recovery breadcrumb: .agent/state/breadcrumbs/<agent-id>.md`.
+2. Look for a compact breadcrumb pointer in current context: `Recovery breadcrumb: .agents/state/breadcrumbs/<agent-id>.md`.
 3. If a pointer exists, read that exact breadcrumb first, then verify it matches the current recovery request before using it.
 4. Verify memory and breadcrumb facts against files, artifacts, and worktree state before editing or continuing.
-5. If no valid breadcrumb pointer exists, discover relevant breadcrumbs from `.agent/state/breadcrumbs/*.md`.
+5. If no valid breadcrumb pointer exists, discover relevant breadcrumbs from `.agents/state/breadcrumbs/*.md`.
 6. If no breadcrumb exists, reconstruct from available local evidence: user prompt, changed files, PRD/spec/issues, docs, logs, tests, and git status/diff when inside a git repo.
 7. Ask the user only when state remains ambiguous or the next action is risky.
 
@@ -22,12 +22,12 @@ Use when the user says the connection dropped, the agent stopped mid-task, work 
 If current context includes this pointer, try it first:
 
 ```text
-Recovery breadcrumb: .agent/state/breadcrumbs/<agent-id>.md
+Recovery breadcrumb: .agents/state/breadcrumbs/<agent-id>.md
 ```
 
 Treat the pointer as a hint, not proof. Before using it, verify:
 
-- The file exists inside `.agent/state/breadcrumbs/`.
+- The file exists inside `.agents/state/breadcrumbs/`.
 - The path and `Agent:` field align.
 - `Goal`, `Current phase`, and `Active files/artifacts` fit the user's recovery request.
 - `Current phase` is not `complete`, unless the user asks to inspect completed work.
@@ -37,7 +37,7 @@ If the pointer is missing, stale, or mismatched, fall back to repo-local discove
 Look for repo-local breadcrumbs at:
 
 ```md
-.agent/state/breadcrumbs/*.md
+.agents/state/breadcrumbs/*.md
 ```
 
 If multiple breadcrumb files exist:

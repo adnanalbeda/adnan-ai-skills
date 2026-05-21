@@ -27,6 +27,12 @@
 - For broad investigation, run 2-3 `cavecrew-investigator` agents in parallel with different search angles, then aggregate results in the main thread.
 - Do not use `cavecrew-builder` before locating the relevant files, and do not force cavecrew when its terse output would make user-facing results unclear.
 
+## Skill And MCP Discovery
+
+- Load `adnan-ai-skills-guide` when deciding which repo skill or MCP to use, when multiple skills seem applicable, or when the task involves adding, removing, renaming, or changing skills/MCPs.
+- Use `adnan-ai-skills-guide` as the repo-local inventory for available skills and configured MCPs, then load the most specific matching skill or use the most authoritative MCP.
+- When any new skill or MCP is added to this repo, update `skills/adnan-ai-skills-guide/SKILL.md` in the same change. When a skill or MCP is removed, renamed, or its selection criteria changes, update the guide in the same change.
+
 ## Planning And Grilling Research
 
 - When any `grill-*`, `lazy-*`, or `plan-feature` skill is used, do not treat clear user instructions as enough by themselves. The user may be asking for help spotting whether the prompt or plan implies guideline violations, spec conflicts, weak assumptions, or known antipatterns.
@@ -35,10 +41,10 @@
 ## Breadcrumbs And Connection Recovery
 
 - Load `agent-breadcrumbs` at the start of long-running or interruption-prone work: planning pipelines, implementation tasks, multi-file edits, subagent orchestration, long tests/builds, reviews, or documentation generation.
-- Store breadcrumbs in the current repo/workspace at `.agent/state/breadcrumbs/<agent-id>.md`.
+- Store breadcrumbs in the current repo/workspace at `.agents/state/breadcrumbs/<agent-id>.md`.
 - Use runtime/tool agent id for `<agent-id>` when available; otherwise use timestamp plus short task slug, for example `2026-05-19-1832-lazy-plan-feature.md`.
 - Maintain one breadcrumb file per concurrent agent/task. Never share one breadcrumb file between parallel agents.
-- When a breadcrumb is active, keep this compact pointer in session context: `Recovery breadcrumb: .agent/state/breadcrumbs/<agent-id>.md`.
+- When a breadcrumb is active, keep this compact pointer in session context: `Recovery breadcrumb: .agents/state/breadcrumbs/<agent-id>.md`.
 - Repeat the pointer after first write, at phase changes, before long commands/subagent calls, before stopping for a user decision, and in handoff or recovery summaries. Do not repeat it in every message.
 - Update breadcrumbs at task start, after each meaningful completed step, before risky phase changes, before long commands/subagent calls, after subagents return, and before stopping for a blocker or user decision.
 - Breadcrumbs must include: `Intent`, `Goal`, `Current phase`, `Last completed step`, `Active files/artifacts`, `Next safe action`, `Blockers`, `Verification status`, and `Last updated`.

@@ -12,7 +12,7 @@ Create and maintain a small local recovery note while doing work that may span m
 Store breadcrumbs in the current repo/workspace at:
 
 ```md
-.agent/state/breadcrumbs/<agent-id>.md
+.agents/state/breadcrumbs/<agent-id>.md
 ```
 
 Use one file per concurrent agent/task. Do not share one breadcrumb file between parallel agents.
@@ -29,23 +29,32 @@ Create parent directories lazily when first writing the breadcrumb.
 Whenever a breadcrumb is active, keep this compact pointer available in the session context:
 
 ```text
-Recovery breadcrumb: .agent/state/breadcrumbs/<agent-id>.md
+Recovery breadcrumb: .agents/state/breadcrumbs/<agent-id>.md
 ```
 
 Emit the pointer after the first breadcrumb write. Repeat it at recovery-sensitive moments: phase changes, before long commands or subagent calls, before stopping for a user decision, and in handoff or recovery summaries.
 
 Do not repeat it in every message. Keep the line exact and compact so `connection-recovery` can parse it after a drop. The pointer is only a lookup hint; recovery must still verify the breadcrumb before continuing.
 
+## Current State Snapshots
+
+Breadcrumbs keep a latest-first history of current state snapshots. On every update, prepend a new `## Current State - <local timestamp>` section above older current state sections. Do not replace or delete older snapshots unless the user asks.
+
+Keep older snapshots concise enough for recovery. If the file becomes noisy during very long work, preserve the latest few meaningful snapshots and summarize older ones under `## Earlier State Summary` instead of deleting context silently.
+
 ## Required Fields
 
-Every breadcrumb must include:
+Every current state snapshot must include:
 
 ```md
 # Agent Breadcrumb
 
 Agent: <agent-id>
-Intent: <planning | implementation | review | commit | explanation | other>
 Goal: <user goal in one sentence>
+
+## Current State - <local timestamp>
+
+Intent: <planning | implementation | review | commit | explanation | other>
 Current phase: <where the work is now>
 Last completed step: <latest completed meaningful step>
 Active files/artifacts:
@@ -78,13 +87,15 @@ Update the breadcrumb:
 
 Do not update after every tiny read/search unless it changes the recovery state.
 
+Each update prepends a complete new current state snapshot. Older snapshots remain below it as recovery history.
+
 ## Writing Rules
 
 - Always use the relevant caveman skill/style when writing or updating breadcrumbs. Breadcrumbs are for agents, so prefer compressed agent-readable notes over human-facing prose.
 - Keep the breadcrumb concise. It is a recovery index, not a transcript.
 - Prefer paths, artifact names, and concrete next actions over prose.
 - Never store secrets, credentials, tokens, or private data that is not already safe in project files.
-- If the repo has existing `.gitignore` rules for `.agent/`, respect them. Do not modify `.gitignore` unless the user asks.
+- If the repo has existing `.gitignore` rules for `.agents/`, respect them. Do not modify `.gitignore` unless the user asks.
 - Do not commit breadcrumb files unless the user explicitly asks.
 
 ## Completion
@@ -92,6 +103,8 @@ Do not update after every tiny read/search unless it changes the recovery state.
 When the task is complete, update the breadcrumb with final status:
 
 ```md
+## Current State - <local timestamp>
+
 Current phase: complete
 Last completed step: <final outcome>
 Next safe action: none
