@@ -5,11 +5,9 @@ description: Grilling session that challenges your plan against the existing dom
 
 <what-to-do>
 
-Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
+Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. For each answer, explain the decision effect and provide example or demo.
 
 Ask the questions one at a time, waiting for feedback on each question before continuing.
-
-If the question/choice tool is available and the question has a bounded set of likely answers, use it instead of plain text. Put the recommended answer first.
 
 If a question can be answered by exploring the codebase, explore the codebase instead.
 
@@ -29,6 +27,9 @@ Most repos have a single context:
 /
 ├── CONTEXT.md
 ├── docs/
+│   ├── grill-answers-tree/
+│   │   ├── 0001-event-sourced-orders-answers.md
+│   │   └── 0002-postgres-for-write-model-answers.md
 │   └── adr/
 │       ├── 0001-event-sourced-orders.md
 │       └── 0002-postgres-for-write-model.md
@@ -76,6 +77,13 @@ When the user states how something works, check whether the code agrees. If you 
 When a term is resolved, update `CONTEXT.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
 
 `CONTEXT.md` should be totally devoid of implementation details. Do not treat `CONTEXT.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
+
+### Track the decisions tree.
+
+For each grilling session, create a file appropriate for the topic of discussion under `docs/grill-answers-tree/`.
+After each concrete answer, write the question and the answer in it.
+
+If the topic of discussion has two or more aspects that need discussion, define these aspects, mention the current one as open and others as deferred until in scope of discussion. Use the format in [DECISION-TREE-FORMAT.md](./DECISION-TREE-FORMAT.md).
 
 ### Offer ADRs sparingly
 

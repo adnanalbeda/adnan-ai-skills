@@ -9,6 +9,7 @@ Use this skill to discover available repo skills and MCPs before choosing a work
 
 ## Selection Rules
 
+- Use `adnan-ai-skills-guide` itself when discovering available repo skills/MCPs or updating this inventory.
 - Load the most specific matching skill before substantive work.
 - If multiple skills fit, prefer planning/grilling skills for requirements, diagnosis skills for bugs, implementation-plan skills for existing plans, and domain skills for specific frameworks/libraries.
 - Use MCPs for first-party or live ecosystem docs/tools when they are more authoritative than local memory.
@@ -16,6 +17,7 @@ Use this skill to discover available repo skills and MCPs before choosing a work
 
 ## Workflow Skills
 
+- `brainstorming`: explore intent, requirements, and design before creative feature/component/behavior work.
 - `plan-feature`: end-to-end feature planning from idea to PRD/spec/issues/Jira docs.
 - `lazy-plan-feature`: same planning pipeline, but choice-driven and low-effort for user answers.
 - `post-grill`: same downstream artifact pipeline as `lazy-plan-feature`, but starts after grilling is complete and does not grill again.
@@ -29,9 +31,9 @@ Use this skill to discover available repo skills and MCPs before choosing a work
 ## Grilling And Planning Pressure
 
 - `grill-me`: rigorous design interrogation, one question at a time.
-- `lazy-grill`: same rigor as `grill-me`, but with recommendation-first choice navigation.
-- `grill-with-docs`: challenge a plan against repo docs, domain language, and ADRs.
-- `lazy-docs`: docs-aware grilling with lazy choice flow and inline doc updates.
+- `lazy-grill`: same rigor as `grill-me`, but with recommendation-first choice navigation and minimal question-tool payloads.
+- `grill-with-docs`: challenge a plan against repo docs, domain language, ADRs, and a tracked decision-answer tree.
+- `lazy-docs`: docs-aware grilling with `lazy-grill` choice flow, glossary challenge, and inline doc updates.
 - `prototype`: build throwaway prototypes for state, logic, or UI exploration.
 - `zoom-out`: get broader context when a code area or architecture is unclear.
 

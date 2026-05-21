@@ -33,6 +33,14 @@ Before calling the question/choice tool, write a short setup that includes:
 - The active recommended answer.
 - The smallest useful demonstration for the active recommendation, such as a tiny code sample, folder tree, state flow, architecture sketch, before/after behavior, or example prompt.
 
+Do not put candidate lists, tradeoffs, the active recommendation explanation, or the demonstration inside the question/choice tool. The tool is only for low-effort selection after the setup has already been shown in normal assistant text.
+
+Question/choice tool content must stay minimal:
+
+- `question`: the decision being made, or a short prompt to choose the active recommendation.
+- `header`: a compact label for the current decision.
+- `options`: only acceptance/navigation actions with short descriptions, such as `Yes`, `Show Option 2`, and `Suggest Other Options`.
+
 Then call the question/choice tool with acceptance and option-navigation choices for the active recommendation. Use dynamic option labels instead of generic forward/back labels so navigation cannot be mistaken for skipping to a later discussion point:
 
 - First candidate: `Yes`, `Show Option 2`, and `Suggest Other Options`.
