@@ -30,7 +30,7 @@ Use these patterns as workflow behavior. They describe how the agent should thin
 ## Required Skills
 
 - `agent-breadcrumbs` for long-running recovery state.
-- `lazy-docs` as source material for docs-aware grilling behavior; run it through this skill's AFK policy instead of its interactive wait loop.
+- `grill-with-docs` as source material for docs-aware grilling behavior; run it through this skill's AFK policy instead of its interactive wait loop.
 - `cavecrew` when compressed subagent output helps preserve context.
 - `council` or `hyperplan` only for hard trade-offs, hostile planning, and review gates.
 - `ufw` for bounded uninterrupted execution slices inside the larger run.

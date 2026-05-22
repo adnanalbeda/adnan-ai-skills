@@ -32,10 +32,8 @@ Use this skill to discover available repo skills and MCPs before choosing a work
 
 ## Grilling And Planning Pressure
 
-- `lazy-grill`: rigorous design interrogation with normal one-question flow or recommendation-first choice navigation.
-- `lazy-docs`: docs-aware grilling with optional choice flow, glossary challenge, inline doc updates, ADR discipline, and decision-tree tracking.
-- `grill-me`: legacy conversational grilling;
-- `grill-with-docs`: legacy docs-aware grilling;
+- `grill-me`: conversational grilling for design interrogation.
+- `grill-with-docs`: docs-aware grilling with glossary challenge, inline doc updates, ADR discipline, and decision-tree tracking.
 - `hyperplan`: hostile planning with five adversarial lenses and fallback from team tools to task subagents or sequential simulation.
 - `prototype`: build throwaway prototypes for state, logic, or UI exploration.
 - `zoom-out`: get broader context when a code area or architecture is unclear.

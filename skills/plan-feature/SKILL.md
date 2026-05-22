@@ -17,7 +17,7 @@ For non-trivial planning sessions, load `agent-breadcrumbs` at the start and mai
 
 ## Default skill order
 
-1. `lazy-docs` - validate the feature against repo language, existing code, `CONTEXT.md`, and ADRs. Use this first for most feature planning because feature plans should fit the existing domain model.
+1. `grill-with-docs` - validate the feature against repo language, existing code, `CONTEXT.md`, and ADRs. Use this first for most feature planning because feature plans should fit the existing domain model.
 2. `prototype` - optional. Use only when a core question is hard to settle in prose, such as state shape, workflow behavior, or UI direction.
 3. `to-prd` - after grilling, spawn a subagent with `cavecrew` loaded to turn the resolved product intent into a local PRD; after that subagent finishes, spawn a separate subagent to review the PRD.
 4. `to-spec` - after the PRD review is resolved, spawn a subagent with `cavecrew` loaded to turn the PRD into a concrete local implementation spec; after that subagent finishes, spawn a separate subagent to review the spec.
@@ -26,12 +26,12 @@ For non-trivial planning sessions, load `agent-breadcrumbs` at the start and mai
 
 ## When to change the order
 
-- If the user wants low-effort planning, answer choices, or lazy planning, run `lazy-docs` with its choice-driven interaction mode and keep downstream artifact creation hands-off unless blocked.
+- If the user wants low-effort planning or answer choices, use the question tool when available and keep downstream artifact creation hands-off unless blocked.
 - If the user already has resolved decisions, skip grilling and start with the first missing artifact.
 - If the user already has an approved PRD, start at `to-spec`.
 - If the user already has an approved spec, run `to-issues`; also run `to-jira` only when the user requests Jira/Confluence or human-facing delivery docs.
-- If the user asks only to stress-test an idea, use `lazy-docs` and stop.
-- If the repo has no useful docs and the user only wants a conversational grilling session, use `lazy-grill` instead of docs-aware grilling.
+- If the user asks only to stress-test an idea, use `grill-with-docs` and stop.
+- If the repo has no useful docs and the user only wants a conversational grilling session, use `grill-me` instead of docs-aware grilling.
 - If the feature is primarily an architecture cleanup or deep refactor, use `improve-codebase-architecture` before `to-spec`.
 
 ## Process
@@ -44,7 +44,7 @@ If you must ask, ask one question at a time. If the question/choice tool is avai
 
 ### 2. Grill the plan
 
-Load `lazy-docs` by default. Interview the user relentlessly about unresolved product, domain, and implementation-shaping decisions. Walk down each branch of the design tree, resolving dependencies between decisions one by one.
+Load `grill-with-docs` by default. Interview the user relentlessly about unresolved product, domain, and implementation-shaping decisions. Walk down each branch of the design tree, resolving dependencies between decisions one by one.
 
 For each question, provide your recommended answer. If a question can be answered by exploring the codebase, explore the codebase instead.
 
@@ -84,7 +84,7 @@ After PRD and spec checkpoints, summarize what exists locally. In interactive or
 
 After all planning artifacts are complete, prepare concise follow-up prompts the user can choose from:
 
-- More planning with `lazy-docs` to stress-test unresolved domain, product, or architecture questions.
+- More planning with `grill-with-docs` to stress-test unresolved domain, product, or architecture questions.
 - Another planning pass with `plan-feature` for a related feature or follow-up slice.
 - Implementation with `implement-feature-plan` using the completed local spec and issue drafts.
 

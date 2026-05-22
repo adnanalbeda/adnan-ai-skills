@@ -87,4 +87,4 @@ Use only the relevant checks for the task:
 
 After the user approves the recommended next action, continue using the relevant original skill or workflow. If the recovered task is long-running, load `agent-breadcrumbs` and update the breadcrumb before continuing.
 
-If the next action is unclear, ask one lazy, bounded question with the recommended path first.
+If the next action is unclear, ask one bounded question with the recommended path first.

@@ -22,8 +22,6 @@ Skills my AI made in this repo include:
 - `litebus-dotnet`
 - `agent-breadcrumbs`
 - `connection-recovery`
-- `lazy-docs`
-- `lazy-grill`
 - `implement-feature-plan`
 - `plan-feature`
 - `oh-my-ai-skill`
