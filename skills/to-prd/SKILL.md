@@ -1,19 +1,19 @@
 ---
 name: to-prd
-description: Turn the current conversation context into a local PRD. Use when user wants to create a PRD from the current context.
+description: Create a product requirements document from the current conversation, decisions, constraints, and user goals. Use when the user asks for a PRD, product brief, requirement document, or captured product plan.
 ---
 
-This skill takes the current conversation context and codebase understanding and produces a PRD. Do NOT interview the user — just synthesize what you already know.
+This skill takes the current conversation context and codebase understanding and produces a PRD. Do not run a broad interview; synthesize what you already know and ask only the narrow checks required below unless a strict hands-off pipeline supplies assumed approval.
 
 ## Local-only rule
 
 All output is local by default. Do NOT create, update, push, or publish anything to GitHub, GitLab, issue trackers, or other remote services unless the user explicitly asks for that specific remote action.
 
-The issue tracker and triage label vocabulary are only needed if the user explicitly asks you to publish remotely — run `/setup-matt-pocock-skills` if not.
+Issue tracker and triage label vocabulary are only needed if the user explicitly asks you to publish remotely. For local PRD files, do not run tracker setup.
 
 ## Recovery breadcrumbs
 
-For non-trivial PRD creation, load `agent-breadcrumbs` and update `.agent/state/breadcrumbs/<agent-id>.md` after context gathering, before writing the PRD, and after saving it locally so `connection-recovery` can reconstruct progress after interruption.
+For non-trivial PRD creation, load `agent-breadcrumbs` and update `.agents/state/breadcrumbs/<agent-id>.md` after context gathering, before writing the PRD, and after saving it locally so `connection-recovery` can reconstruct progress after interruption.
 
 ## Local file storage
 
@@ -29,9 +29,9 @@ Use lowercase ASCII kebab-case for filenames. Start the file with an H1 title, t
 
 A deep module (as opposed to a shallow module) is one which encapsulates a lot of functionality in a simple, testable interface which rarely changes.
 
-Check with the user that these modules match their expectations. Check with the user which modules they want tests written for.
+Check with the user only when module or test-scope choices materially change behavior, risk, or cost. In a strict hands-off pipeline such as `oh-my-ai-skill`, use the pipeline's assumed approval instead, record that assumption in `Further Notes`, and continue only if there are no unresolved blocking questions.
 
-3. Write the PRD using the template below, then save it locally using the storage rules above or present it as a local draft. If the user explicitly asks you to publish it remotely, apply the `ready-for-agent` triage label - no need for additional triage.
+3. Write the PRD using the template below, then save it locally using the storage rules above. If the user explicitly asks you to publish it remotely, apply the `ready-for-agent` triage label - no need for additional triage.
 
 <prd-template>
 

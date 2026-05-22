@@ -24,6 +24,12 @@ What is explicitly excluded.
 - [ ] Criterion 1
 - [ ] Criterion 2
 
+## Rollout and Backout
+Rollout approach, migration notes, and backout path. Write "None" if not applicable.
+
+## Testing Plan
+How the Epic outcome will be verified.
+
 ## Child Stories
 - `stories/01-fe-kebab-title.md`
 ```
@@ -45,6 +51,12 @@ As a <actor>, I want <capability>, so that <benefit>.
 ## Acceptance Criteria
 - [ ] Criterion 1
 - [ ] Criterion 2
+
+## Testing Plan
+How this Story will be verified.
+
+## Rollout Notes
+Story-specific rollout, migration, or release notes. Write "None" if not applicable.
 
 ## Tasks
 - `../tasks/01-01-be-kebab-title.md`
@@ -70,8 +82,17 @@ Concrete implementation work for this task.
 ## Acceptance Criteria
 - [ ] Criterion 1
 
+## Blocked By
+None - can start immediately
+
+## Testing Plan
+How this Task will be verified.
+
+## Rollout Notes
+Task-specific rollout, migration, or release notes. Write "None" if not applicable.
+
 ## Notes
-Relevant constraints, prior art, testing notes, or rollout notes.
+Relevant constraints or prior art.
 ```
 
 ## Confluence

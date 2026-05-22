@@ -1,11 +1,11 @@
 ---
 name: implement-feature-plan
-description: Implement a feature planned by the plan-feature workflow from local PRD, spec, issue drafts, and Jira/Confluence docs. Use when the user wants to build or execute an existing feature plan, implement local issue drafts, or continue work from docs/prds, docs/specs, docs/issues, or docs/jira.
+description: Execute an existing feature plan from PRDs, implementation specs, issue drafts, or planning artifacts. Use when the user asks to build from prepared docs, implement issue drafts, continue a planned feature, or work from docs/prds, docs/specs, docs/issues, or docs/jira.
 ---
 
 # Implement Feature Plan
 
-Implement artifacts produced by `plan-feature`. Agent-focused issue drafts drive execution; the spec is the source of truth; PRD and Jira/Confluence docs provide context.
+Implement artifacts produced by `plan-feature` or `oh-my-ai-skill`. Agent-focused issue drafts drive execution; the spec is the source of truth; PRD and Jira/Confluence docs provide context.
 
 ## Subagent delegation
 
@@ -25,7 +25,7 @@ Do not commit unless the user explicitly asks. If committing is requested, follo
 
 ## Recovery breadcrumbs
 
-For non-trivial implementation work, load `agent-breadcrumbs` at the start and maintain `.agent/state/breadcrumbs/<agent-id>.md` through issue selection, edits, subagent orchestration, reviews, tests, and acceptance-criteria verification. Update it before long commands/subagent calls and after each completed slice so `connection-recovery` can reconstruct where implementation stopped.
+For non-trivial implementation work, load `agent-breadcrumbs` at the start and maintain `.agents/state/breadcrumbs/<agent-id>.md` through issue selection, edits, subagent orchestration, reviews, tests, and acceptance-criteria verification. Update it before long commands/subagent calls and after each completed slice so `connection-recovery` can reconstruct where implementation stopped.
 
 ## Inputs
 
@@ -36,9 +36,9 @@ Expected local artifact chain:
 - Agent issues: `docs/issues/<source-doc-name>/01-kebab-title.md`
 - Human docs: `docs/jira/<source-spec-name>/`
 
-If the user gives a path, start there. If multiple matching plans exist, ask which one to implement using the question/choice tool when available.
+If the user gives a path, start there. If multiple matching plans exist, ask which one to implement using the question/choice tool when available. If running under `oh-my-ai-skill`, first use current run context, artifact links, timestamps, and dependency order to choose; stop only if no safe local choice exists.
 
-If no spec or issue drafts exist, load `plan-feature` or the missing planning skill instead of guessing the implementation plan.
+If no spec or issue drafts exist, load `plan-feature` or the missing planning skill instead of guessing the implementation plan. If running under `oh-my-ai-skill`, return to its artifact pipeline for missing spec or issue drafts instead of starting a separate planning workflow.
 
 ## Authority order
 
@@ -59,11 +59,11 @@ Jira and Confluence docs are for people to read. Do not treat them as more autho
 
 Read the spec, issue draft folder, PRD if linked, and Jira/Confluence docs if present. Explore the codebase to verify current state and identify prior art before editing.
 
-Build an implementation queue from unblocked issue drafts in dependency order. Skip blocked drafts unless the blocker is already complete in the repo.
+Build an implementation queue from unblocked AFK and resolved HITL issue drafts in dependency order. Skip blocked drafts unless the blocker is already complete in the repo. Skip unresolved HITL drafts until their required human decision or review is resolved and recorded.
 
 ### 2. Select work slice
 
-Implement one vertical slice at a time. Prefer the next unblocked issue draft. If the user asks for a specific issue, implement that issue and its required blockers first.
+Implement one vertical slice at a time. Prefer the next unblocked AFK or resolved HITL issue draft. If the user asks for a specific issue, implement that issue and its required blockers first, unless a HITL decision remains unresolved.
 
 For broad investigation, use `cavecrew-investigator` or `Explore` before editing. Use `cavecrew-builder` only for obvious 1-2 file surgical edits after files are known.
 
@@ -94,9 +94,9 @@ For each completed issue draft:
 
 ### 6. Continue or stop
 
-After each slice, summarize completed files, verified criteria, and remaining issue drafts. Continue to the next unblocked slice unless the user asked for only one slice or a checkpoint is needed.
+After each slice, summarize completed files, verified criteria, and remaining issue drafts. Continue to the next unblocked slice unless the user asked for only one slice or a checkpoint is needed. If running under a strict hands-off parent workflow such as `oh-my-ai-skill`, do not stop for routine checkpoints; update the parent run notes and continue.
 
-Stop and ask when implementation requires a product/architecture decision not answered by the spec or codebase.
+Stop and ask when implementation requires a product/architecture decision not answered by the spec or codebase. If running under `oh-my-ai-skill`, first use its option-study decision resolution policy; ask only after the resolver finds no safe local path.
 
 ## Completion criteria
 

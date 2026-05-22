@@ -1,6 +1,6 @@
 ---
 name: scalar-dotnet
-description: Scalar API reference guidance for ASP.NET Core applications using Scalar.AspNetCore and OpenAPI documents. Use when implementing, configuring, migrating to, or troubleshooting Scalar, MapScalarApiReference, API reference UI, OpenAPI route patterns, or Swagger UI replacement in .NET projects.
+description: Scalar.AspNetCore workflow for ASP.NET Core OpenAPI reference UI setup, configuration, migration, and troubleshooting. Use when working with Scalar, MapScalarApiReference, OpenAPI routes, API reference UI, or Swagger UI replacement in .NET projects.
 ---
 
 # Scalar .NET

@@ -1,6 +1,6 @@
 ---
 name: prototype
-description: Build a throwaway prototype to flesh out a design before committing to it. Routes between two branches — a runnable terminal app for state/business-logic questions, or several radically different UI variations toggleable from one route. Use when the user wants to prototype, sanity-check a data model or state machine, mock up a UI, explore design options, or says "prototype this", "let me play with it", "try a few designs".
+description: Build a throwaway prototype to answer a design question before production implementation. Use for runnable state/business-logic experiments, UI variation mockups, data model sanity checks, state machine exploration, or prompts like prototype this, let me play with it, or try a few designs.
 ---
 
 # Prototype
@@ -16,6 +16,8 @@ Identify which question is being answered — from the user's prompt, the surrou
 
 The two branches produce very different artifacts — getting this wrong wastes the whole prototype. If the question is genuinely ambiguous and the user isn't reachable, default to whichever branch better matches the surrounding code (a backend module → logic; a page or component → UI) and state the assumption at the top of the prototype.
 
+In a strict hands-off parent workflow such as `oh-my-ai-skill`, do not pause to ask. Choose the safest branch from surrounding evidence, record the assumption at the top of the prototype and in the parent run notes, and stop only if the branch choice would materially change a product or architecture decision.
+
 ## Rules that apply to both
 
 1. **Throwaway from day one, and clearly marked as such.** Locate the prototype code close to where it will actually be used (next to the module or page it's prototyping for) so context is obvious — but name it so a casual reader can see it's a prototype, not production. For throwaway UI routes, obey whatever routing convention the project already uses; don't invent a new top-level structure.
@@ -27,4 +29,4 @@ The two branches produce very different artifacts — getting this wrong wastes 
 
 ## When done
 
-The _answer_ is the only thing worth keeping from a prototype. Capture it somewhere durable (commit message, ADR, issue, or a `NOTES.md` next to the prototype) along with the question it was answering. If the user is around, that capture is a quick conversation; if not, leave the placeholder so they (or you, on the next pass) can fill in the verdict before deleting the prototype.
+The _answer_ is the only thing worth keeping from a prototype. Capture it somewhere durable (commit message, ADR, issue, or a `NOTES.md` next to the prototype) along with the question it was answering. If the user is around and the parent workflow allows interruption, that capture is a quick conversation; if not, leave the placeholder so they (or you, on the next pass) can fill in the verdict before deleting the prototype.

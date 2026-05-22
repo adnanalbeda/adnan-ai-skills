@@ -7,7 +7,36 @@ description: Grilling session that challenges your plan against the existing dom
 
 Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. For each answer, explain the decision effect and provide example or demo.
 
+For every question, suggest at least two concrete answer options. Mark exactly one as recommended, put it first unless repo evidence makes another ordering clearer, and use this format:
+
+````md
+1. option-a (recommended)
+description: <what this chooses>
+example:
+```
+<small concrete example or demo>
+```
+reason: <why this is recommended>
+
+2. option-b
+description: <what this chooses>
+example:
+```
+<small concrete example or demo>
+```
+reason: <why someone might choose this instead>
+````
+
 Ask the questions one at a time, waiting for feedback on each question before continuing.
+
+When called by a strict hands-off parent workflow such as `oh-my-ai-skill`, do not wait for routine user feedback. Answer from repo/docs/code first. If still unresolved, propose at least two concrete options, then run independent resolution agents before choosing:
+
+1. Spawn one agent per option to study that option's consequences, evidence, risks, and downstream effects. Example: `agent-1: option-a`, `agent-2: option-b`.
+2. Collect each option agent's summary with evidence and recommendation.
+3. Spawn a resolver agent to compare the option summaries and choose the best decision based on evidence, reversibility, risk, and fit with existing docs/code.
+4. Record the resolved decision, evidence, rejected option, and any remaining blocker in `docs/grill-answers-tree/` or the parent run notes.
+
+Only stop for the user if the resolver finds no safe local decision because the unresolved choice materially changes behavior, data shape, external contracts, security, cost, or irreversible scope.
 
 If a question can be answered by exploring the codebase, explore the codebase instead.
 

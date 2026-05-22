@@ -1,6 +1,6 @@
 ---
 name: storybook-angular
-description: Storybook guidance for Angular projects, avoiding React-specific Storybook assumptions. Use when setting up, configuring, writing, testing, documenting, or troubleshooting Storybook stories for Angular components, Angular workspaces, Angular CLI builders, Compodoc, moduleMetadata, applicationConfig, controls, args, decorators, or Storybook Angular addons.
+description: Angular Storybook workflow for setup, configuration, stories, docs, controls, args, decorators, Compodoc, moduleMetadata, applicationConfig, and Angular CLI builders. Use when working on Storybook for Angular components or workspaces.
 ---
 
 # Storybook Angular

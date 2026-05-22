@@ -1,6 +1,6 @@
 ---
 name: connection-recovery
-description: Recover after connection loss or interrupted agent work by using current conversation memory, agent breadcrumbs, worktree state, artifacts, and verification results to reconstruct where work stopped and ask before continuing.
+description: Reconstruct interrupted work from conversation memory, breadcrumbs, worktree state, artifacts, logs, and verification results, then summarize current state before continuing. Use after connection loss, stopped agent work, or incomplete context.
 ---
 
 # Connection Recovery

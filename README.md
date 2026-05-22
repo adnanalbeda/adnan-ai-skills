@@ -7,24 +7,29 @@ Personal AI agent skills and shared agent config, copied from the current global
 - `skills/` - installable skill folders, each with `SKILL.md`
 - `AGENTS.md` - global agent instructions
 - `config/opencode/opencode.json` - OpenCode MCP config snapshot
-- `config/agents/skill-lock.json` - captured global skill lock metadata
+- `config/agents/skill-lock.json` - historical captured global skill lock metadata, not the current repo skill inventory
 
 ## AI-Made Skills
 
 Skills my AI made in this repo include:
 
 - `to-jira`
+- `to-prd`
 - `to-spec`
+- `to-issues`
 - `storybook-angular`
 - `quartz-dotnet`
 - `litebus-dotnet`
-- `brainstorming`
 - `agent-breadcrumbs`
 - `connection-recovery`
-- `lazy-*` (`lazy-docs`, `lazy-grill`, `lazy-plan-feature`)
-- `post-grill`
+- `lazy-docs`
+- `lazy-grill`
 - `implement-feature-plan`
 - `plan-feature`
+- `oh-my-ai-skill`
+- `council`
+- `ufw`
+- `hyperplan`
 
 Other skills in `skills/` may also differ from official or upstream versions. This repo keeps my tailored variants for my own workflows, preferences, and agent setup.
 
@@ -38,9 +43,9 @@ Use `connection-recovery` when work was interrupted, context may be incomplete, 
 
 ## Use
 
-Use this repo as the source for any skills CLI that installs from a local folder. The installable skill roots are under `skills/`.
+Use this repo as the source for any skills CLI that installs from a local folder or GitHub repo. The installable skill roots are under `skills/`; treat that folder, not `config/agents/skill-lock.json`, as the current inventory.
 
-Install from `skills.sh` / the `skills` CLI with:
+Install from `skills.sh` / the `skills` CLI with a remote source:
 
 ```powershell
 pnpx skills add adnanalbeda/adnan-ai-skills

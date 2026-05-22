@@ -1,6 +1,6 @@
 ---
 name: litebus-dotnet
-description: LiteBus mediator guidance for .NET applications using CQS, DDD, commands, queries, events, pipeline handlers, open generic handlers, and durable command inbox. Use when implementing, configuring, migrating to, testing, or troubleshooting LiteBus, LiteBus.Commands, LiteBus.Queries, LiteBus.Events, LiteBus.Messaging, Microsoft DI integration, Autofac integration, or MediatR-to-LiteBus changes.
+description: LiteBus workflow for .NET mediator, CQS, DDD messages, command/query/event handlers, pipelines, open generic handlers, and durable command inbox patterns. Use when implementing, configuring, migrating, testing, or troubleshooting LiteBus packages or MediatR-to-LiteBus changes.
 ---
 
 # LiteBus .NET

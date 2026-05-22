@@ -1,19 +1,19 @@
 ---
 name: lazy-grill
-description: Relentless planning interview like grill-me, but optimized for lazy/choice-driven answers. Use when the user wants rigorous grilling without typing open-ended answers, asks for lazy grilling, choice-driven grilling, or says not to make them write answers.
+description: Planning interview that stress-tests a design one decision at a time, with optional choice-driven answers to minimize user typing. Use when the user asks to be grilled, wants plan pressure, lazy grilling, answer choices, recommendation-first questions, or strict planning pressure before implementation.
 ---
 
 # Lazy Grill
 
 Interview the user relentlessly about every aspect of a plan until reaching shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one by one.
 
-This is a duplicate of `grill-me` with a different interaction style: keep the same rigor, but make every answer path as low-effort as possible for the user.
+Run the full planning-pressure interview with a low-effort interaction style: keep rigorous decision coverage, but make every answer path as easy as possible for the user.
 
 ## Start rule
 
-First, ask whether the user really wanted to use this skill, or meant to use `lazy-docs` instead.
+If docs-aware versus conversational intent is ambiguous, ask whether the user meant `lazy-docs` instead.
 
-Use `lazy-docs` when the plan should be challenged against existing repo docs, domain language, `CONTEXT.md`, ADRs, or implementation conventions. Use `lazy-grill` when the user wants a conversational design interrogation with lazy choice navigation.
+Use `lazy-docs` when the plan should be challenged against existing repo docs, domain language, `CONTEXT.md`, ADRs, or implementation conventions. Use `lazy-grill` when the user wants conversational design interrogation with optional lazy choice navigation.
 
 ## Core rules
 
@@ -21,17 +21,44 @@ Use `lazy-docs` when the plan should be challenged against existing repo docs, d
 - For each question, provide your recommended answer.
 - If a question can be answered by exploring files or code, explore first instead of asking the user.
 - If the question/choice tool is available, use it for the active recommendation flow.
+- Suggest at least two concrete answer options for every question; mark exactly one as recommended.
 - Convert open-ended questions into 2-4 concrete candidate answers plus an Other/custom-answer path whenever possible.
-- Keep grilling depth equal to `grill-me`; only the output and answer mechanics are easier.
+- Keep grilling depth rigorous; lazy mode changes answer mechanics, not decision coverage.
+
+## Interaction mode
+
+- If the user asks for `grill me`, normal grilling, or open-ended pressure, ask one concise question at a time and wait for their answer.
+- If the user asks for lazy grilling, low-effort answers, or choices, use the active-recommendation flow below.
+- If the user does not specify a mode, prefer choice-driven questions when bounded options are clear; otherwise ask a normal single question.
 
 ## Lazy choice flow
 
 Before calling the question/choice tool, write a short setup that includes:
 
 - The current question.
-- All candidate answers with short tradeoffs.
+- At least two candidate answers using the option format below.
 - The active recommended answer.
 - The smallest useful demonstration for the active recommendation, such as a tiny code sample, folder tree, state flow, architecture sketch, before/after behavior, or example prompt.
+
+Use this option format before the question/choice tool:
+
+````md
+1. option-a (recommended)
+description: <what this chooses>
+example:
+```
+<small concrete example or demo>
+```
+reason: <why this is recommended>
+
+2. option-b
+description: <what this chooses>
+example:
+```
+<small concrete example or demo>
+```
+reason: <why someone might choose this instead>
+````
 
 Do not put candidate lists, tradeoffs, the active recommendation explanation, or the demonstration inside the question/choice tool. The tool is only for low-effort selection after the setup has already been shown in normal assistant text.
 
@@ -63,7 +90,7 @@ If the custom answer appears to select an existing candidate by number, label, o
 
 ## Recommendation behavior
 
-Rank candidate answers before presenting them. The first candidate should be the best recommendation based on user goals, known constraints, repo facts, and engineering tradeoffs.
+Rank candidate answers before presenting them. The first candidate should be the best recommendation based on user goals, known constraints, repo facts, and engineering tradeoffs, and should be labeled `(recommended)`.
 
 Do not make all choices seem equal. Be opinionated, but make it easy to move to the next best option.
 

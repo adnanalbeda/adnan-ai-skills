@@ -1,6 +1,6 @@
 ---
 name: adnan-ai-skills-guide
-description: Catalog of this repo's available skills and configured MCPs, with guidance for choosing the right capability before work. Use when discovering available skills/MCPs, deciding which skill to load, choosing between overlapping workflows, or updating this repo's skill/MCP inventory.
+description: Skill and MCP selection guide that maps user intent to the right workflow, domain skill, communication mode, or documentation source. Use when choosing between skills, resolving overlapping triggers, discovering configured MCPs, or updating the skill/MCP inventory.
 ---
 
 # Adnan AI Skills Guide
@@ -12,16 +12,18 @@ Use this skill to discover available repo skills and MCPs before choosing a work
 - Use `adnan-ai-skills-guide` itself when discovering available repo skills/MCPs or updating this inventory.
 - Load the most specific matching skill before substantive work.
 - If multiple skills fit, prefer planning/grilling skills for requirements, diagnosis skills for bugs, implementation-plan skills for existing plans, and domain skills for specific frameworks/libraries.
+- If the user asks for `/oh-my-ai-skills`, `oh-my-ai-skill`, full docs-aware planning through implementation, Ralph Loop, or no human stage gates, prefer `oh-my-ai-skill` over `plan-feature` and direct `implement-feature-plan`.
+- If the user asks for ultrawork, ultra focused work, or bounded uninterrupted execution without the full planning artifact pipeline, prefer `ufw`.
+- If the user asks for `hyperplan`, hostile planning, adversarial critique, red-team planning, or cross-critique, load `hyperplan` before creating or executing a plan.
 - Use MCPs for first-party or live ecosystem docs/tools when they are more authoritative than local memory.
 - When adding, removing, or renaming any skill or MCP in this repo, update this guide in the same change.
 
 ## Workflow Skills
 
-- `brainstorming`: explore intent, requirements, and design before creative feature/component/behavior work.
-- `plan-feature`: end-to-end feature planning from idea to PRD/spec/issues/Jira docs.
-- `lazy-plan-feature`: same planning pipeline, but choice-driven and low-effort for user answers.
-- `post-grill`: same downstream artifact pipeline as `lazy-plan-feature`, but starts after grilling is complete and does not grill again.
-- `implement-feature-plan`: execute an existing local PRD/spec/issue plan.
+- `plan-feature`: end-to-end feature planning from idea or resolved decisions to PRD/spec/issues/Jira docs, with interactive, low-effort, or hands-off modes.
+- `oh-my-ai-skill`: local-only uninterrupted docs-aware grilling, subagent council, PRD/spec/issues review gates, and Ralph-loop implementation.
+- `ufw`: Ultra Focused Work loop for bounded uninterrupted execution with compact state and verification.
+- `implement-feature-plan`: execute existing local PRD/spec/issue plans from `plan-feature` or `oh-my-ai-skill`.
 - `to-prd`: turn conversation context into a local PRD.
 - `to-spec`: turn a PRD, plan, issue, or context into an implementation spec.
 - `to-issues`: break a plan/spec into independently grabbable issue drafts.
@@ -30,15 +32,17 @@ Use this skill to discover available repo skills and MCPs before choosing a work
 
 ## Grilling And Planning Pressure
 
-- `grill-me`: rigorous design interrogation, one question at a time.
-- `lazy-grill`: same rigor as `grill-me`, but with recommendation-first choice navigation and minimal question-tool payloads.
-- `grill-with-docs`: challenge a plan against repo docs, domain language, ADRs, and a tracked decision-answer tree.
-- `lazy-docs`: docs-aware grilling with `lazy-grill` choice flow, glossary challenge, and inline doc updates.
+- `lazy-grill`: rigorous design interrogation with normal one-question flow or recommendation-first choice navigation.
+- `lazy-docs`: docs-aware grilling with optional choice flow, glossary challenge, inline doc updates, ADR discipline, and decision-tree tracking.
+- `grill-me`: legacy conversational grilling;
+- `grill-with-docs`: legacy docs-aware grilling;
+- `hyperplan`: hostile planning with five adversarial lenses and fallback from team tools to task subagents or sequential simulation.
 - `prototype`: build throwaway prototypes for state, logic, or UI exploration.
 - `zoom-out`: get broader context when a code area or architecture is unclear.
 
 ## Engineering Execution
 
+- `council`: structured multi-role analysis for hard decisions, contradictions, trade-offs, and review gates.
 - `diagnose`: reproduce, minimize, hypothesize, instrument, fix, and regression-test bugs or performance regressions.
 - `tdd`: red-green-refactor feature or bug work when test-first development is requested.
 - `improve-codebase-architecture`: find refactoring and architecture improvements using repo docs and ADRs.

@@ -1,6 +1,6 @@
 ---
 name: to-jira
-description: Turn a prepared implementation spec into local Jira artifacts and Confluence documentation. Use when user asks for Jira tickets, an epic/story/task breakdown, or Confluence publish-ready docs after a spec exists.
+description: Convert a prepared implementation spec into Jira-ready epic/story/task artifacts and Confluence-ready documentation. Use when the user asks for Jira tickets, issue hierarchy, delivery breakdowns, or publish-ready Confluence docs.
 ---
 
 # To Jira
@@ -13,7 +13,7 @@ All output is local by default. Do NOT create, update, push, or publish anything
 
 ## Recovery breadcrumbs
 
-For non-trivial Jira/Confluence draft generation, load `agent-breadcrumbs` and update `.agent/state/breadcrumbs/<agent-id>.md` after reading the spec, creating the Epic/Story/Task breakdown, writing Confluence docs, and saving local files so `connection-recovery` can reconstruct progress after interruption.
+For non-trivial Jira/Confluence draft generation, load `agent-breadcrumbs` and update `.agents/state/breadcrumbs/<agent-id>.md` after reading the spec, creating the Epic/Story/Task breakdown, writing Confluence docs, and saving local files so `connection-recovery` can reconstruct progress after interruption.
 
 ## Inputs
 

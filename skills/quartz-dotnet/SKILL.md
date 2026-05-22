@@ -1,6 +1,6 @@
 ---
 name: quartz-dotnet
-description: Quartz.NET scheduling guidance for .NET applications. Use when working with Quartz.NET jobs, triggers, cron schedules, hosted services, dependency injection, persistent job stores, clustering, misfire handling, scheduler configuration, or Quartz API usage.
+description: Quartz.NET scheduling workflow for jobs, triggers, cron expressions, hosted services, dependency injection, persistent stores, clustering, misfire handling, scheduler configuration, and Quartz API usage. Use when implementing or troubleshooting scheduling in .NET applications.
 ---
 
 # Quartz.NET

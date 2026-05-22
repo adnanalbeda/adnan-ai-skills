@@ -1,6 +1,6 @@
 ---
 name: tdd
-description: Test-driven development with red-green-refactor loop. Use when user wants to build features or fix bugs using TDD, mentions "red-green-refactor", wants integration tests, or asks for test-first development.
+description: Test-first implementation workflow using red-green-refactor, small vertical slices, and regression-focused verification. Use when the user asks for TDD, red-green-refactor, test-first development, integration tests, or a bug fix with a failing test first.
 ---
 
 # Test-Driven Development
@@ -46,7 +46,7 @@ RIGHT (vertical):
 
 When exploring the codebase, use the project's domain glossary so that test names and interface vocabulary match the project's language, and respect ADRs in the area you're touching.
 
-Before writing any code:
+Before writing any code, when no reviewed spec/issue or strict hands-off parent workflow already supplies the plan:
 
 - [ ] Confirm with user what interface changes are needed
 - [ ] Confirm with user which behaviors to test (prioritize)
@@ -55,9 +55,11 @@ Before writing any code:
 - [ ] List the behaviors to test (not implementation steps)
 - [ ] Get user approval on the plan
 
-Ask: "What should the public interface look like? Which behaviors are most important to test?"
+In a reviewed spec/issue or strict hands-off parent workflow such as `oh-my-ai-skill`, treat the reviewed artifacts as approval. Do not ask the planning question below unless unresolved product or architecture decisions materially affect behavior and cannot be resolved from artifacts or code.
 
-**You can't test everything.** Confirm with the user exactly which behaviors matter most. Focus testing effort on critical paths and complex logic, not every possible edge case.
+For interactive TDD planning, ask: "What should the public interface look like? Which behaviors are most important to test?"
+
+**You can't test everything.** In interactive TDD planning, confirm with the user exactly which behaviors matter most. Under reviewed artifacts or `oh-my-ai-skill`, derive priority from acceptance criteria, risk, and existing tests. Focus testing effort on critical paths and complex logic, not every possible edge case.
 
 ### 2. Tracer Bullet
 

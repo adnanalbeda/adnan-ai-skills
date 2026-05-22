@@ -1,6 +1,6 @@
 ---
 name: to-spec
-description: Turn a PRD, plan, issue, or conversation context into a concrete local implementation spec. Use when user wants to create a spec, technical spec, implementation spec, or convert context into a spec.
+description: Create a concrete implementation spec from a PRD, plan, issue, or conversation context. Use when the user asks for a technical spec, implementation spec, build plan, or conversion of requirements into engineering details.
 ---
 
 # To Spec
@@ -11,11 +11,11 @@ Create an implementation spec that is precise enough for an agent to build from,
 
 All output is local by default. Do NOT create, update, push, or publish anything to GitHub, GitLab, issue trackers, or other remote services unless the user explicitly asks for that specific remote action.
 
-The issue tracker and triage label vocabulary are only needed if the user explicitly asks you to publish remotely - run `/setup-matt-pocock-skills` if not.
+Issue tracker and triage label vocabulary are only needed if the user explicitly asks you to publish remotely. For local spec files, do not run tracker setup.
 
 ## Recovery breadcrumbs
 
-For non-trivial spec creation, load `agent-breadcrumbs` and update `.agent/state/breadcrumbs/<agent-id>.md` after source-material gathering, codebase exploration, gap resolution, draft creation, and local save so `connection-recovery` can reconstruct progress after interruption.
+For non-trivial spec creation, load `agent-breadcrumbs` and update `.agents/state/breadcrumbs/<agent-id>.md` after source-material gathering, codebase exploration, gap resolution, draft creation, and local save so `connection-recovery` can reconstruct progress after interruption.
 
 ## Local file storage
 
@@ -51,7 +51,7 @@ Write the spec using the template below. Prefer durable names and interfaces ove
 
 ### 5. Review and save locally
 
-Present the spec summary and any open questions to the user. Once approved, save it locally using the storage rules above or present it as a local draft. If the user explicitly asks you to publish it remotely, apply the `ready-for-agent` triage label only if there are no unresolved blocking questions.
+Present the spec summary and any open questions to the user. Once approved, save it locally using the storage rules above. In a strict hands-off pipeline such as `oh-my-ai-skill`, use the pipeline's assumed approval instead, record that assumption in `Current State`, and continue only if there are no unresolved blocking questions. If the user explicitly asks you to publish it remotely, apply the `ready-for-agent` triage label only if there are no unresolved blocking questions.
 
 <spec-template>
 

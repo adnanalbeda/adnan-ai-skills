@@ -1,17 +1,46 @@
 ---
 name: lazy-docs
-description: Lazy, choice-driven grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) inline as decisions crystallise. Use when user wants docs-aware planning pressure with lazy-grill interaction.
+description: Docs-aware planning pressure that challenges a plan against domain language, code evidence, ADRs, and existing documentation while recording resolved terminology and durable decisions. Use when the user wants to stress-test a plan against project knowledge, with normal questions or low-effort answer choices.
 ---
 
 <what-to-do>
 
-Use `lazy-grill` interaction style while doing docs-aware grilling: interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
-
-This skill is the docs-aware variant of `lazy-grill`. Do not redirect to plain `lazy-grill` or `grill-with-docs`; apply the lazy-grill active-recommendation flow inside the docs-aware workflow.
+Run docs-aware grilling: interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
 
 Ask the questions one at a time, waiting for feedback on each question before continuing.
 
-Before using the question/choice tool, load and follow the `lazy-grill` skill's active-recommendation flow exactly. Do not duplicate or reinterpret that flow here. `lazy-docs` adds docs-aware research, glossary challenge, and inline documentation updates; `lazy-grill` remains the source of truth for how candidate lists, recommendations, demonstrations, and question/choice tool boundaries are presented.
+For every user-facing question, suggest at least two concrete answer options. Mark exactly one as recommended, put it first unless repo evidence makes another ordering clearer, and use this format from `lazy-grill`:
+
+````md
+1. option-a (recommended)
+description: <what this chooses>
+example:
+```
+<small concrete example or demo>
+```
+reason: <why this is recommended>
+
+2. option-b
+description: <what this chooses>
+example:
+```
+<small concrete example or demo>
+```
+reason: <why someone might choose this instead>
+````
+
+When called by a strict hands-off parent workflow such as `oh-my-ai-skill`, do not wait for routine user feedback. Answer from repo/docs/code first. If still unresolved, propose at least two concrete options, then run independent resolution agents before choosing:
+
+1. Spawn one agent per option to study that option's consequences, evidence, risks, and downstream effects. Example: `agent-1: option-a`, `agent-2: option-b`.
+2. Collect each option agent's summary with evidence and recommendation.
+3. Spawn a resolver agent to compare the option summaries and choose the best decision based on evidence, reversibility, risk, and fit with existing docs/code.
+4. Record the resolved decision, evidence, rejected option, and any remaining blocker in `docs/grill-answers-tree/` or the parent run notes.
+
+If subagents are unavailable, simulate the option studies sequentially in the main thread with the same output contract.
+
+Only stop for the user if the resolver finds no safe local decision because the unresolved choice materially changes behavior, data shape, external contracts, security, cost, or irreversible scope.
+
+When the user wants low-effort answers, answer choices, or recommendation-first navigation, load and follow the `lazy-grill` active-recommendation flow exactly. Otherwise ask one normal concise question at a time. `lazy-docs` adds docs-aware research, glossary challenge, decision-tree tracking, and inline documentation updates.
 
 If a question can be answered by exploring the codebase, explore the codebase instead.
 
@@ -75,9 +104,15 @@ When the user states how something works, check whether the code agrees. If you 
 
 ### Update CONTEXT.md inline
 
-When a term is resolved, update `CONTEXT.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
+When a term is resolved, update `CONTEXT.md` right there unless the current request is read-only or asks not to edit. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md). In read-only mode, report the proposed doc update instead.
 
 `CONTEXT.md` should be totally devoid of implementation details. Do not treat `CONTEXT.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
+
+### Track the decision tree
+
+For each docs-aware grilling session, create a topic file under `docs/grill-answers-tree/` when the first concrete answer is recorded.
+
+After each concrete answer, record the question and answer. If the topic has two or more aspects, define the aspects, mark the current one as `open`, and mark later aspects as `deferred` until in scope. Use [DECISION-TREE-FORMAT.md](./DECISION-TREE-FORMAT.md).
 
 ### Offer ADRs sparingly
 

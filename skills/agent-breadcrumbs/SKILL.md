@@ -1,6 +1,6 @@
 ---
 name: agent-breadcrumbs
-description: Maintain per-agent recovery breadcrumbs during long planning, implementation, review, or documentation tasks so interrupted work can be reconstructed after connection loss. Use before and during long-running workflows, subagent orchestration, multi-file edits, or strict planning pipelines.
+description: Maintain compact recovery breadcrumbs for long planning, implementation, review, documentation, or subagent workflows so interrupted work can be reconstructed safely. Use before and during interruption-prone tasks, multi-file edits, long verification, or planning pipelines.
 ---
 
 # Agent Breadcrumbs
@@ -20,7 +20,7 @@ Use one file per concurrent agent/task. Do not share one breadcrumb file between
 Choose `<agent-id>` in this order:
 
 1. Runtime/tool agent id if one is available.
-2. Fallback: timestamp plus short task slug, for example `2026-05-19-1832-lazy-plan-feature.md`.
+2. Fallback: timestamp plus short task slug, for example `2026-05-19-1832-plan-feature.md`.
 
 Create parent directories lazily when first writing the breadcrumb.
 
@@ -91,7 +91,7 @@ Each update prepends a complete new current state snapshot. Older snapshots rema
 
 ## Writing Rules
 
-- Always use the relevant caveman skill/style when writing or updating breadcrumbs. Breadcrumbs are for agents, so prefer compressed agent-readable notes over human-facing prose.
+- Keep exact field names, timestamps, paths, blockers, and verification results. Use caveman-style compression only where it does not reduce recovery precision.
 - Keep the breadcrumb concise. It is a recovery index, not a transcript.
 - Prefer paths, artifact names, and concrete next actions over prose.
 - Never store secrets, credentials, tokens, or private data that is not already safe in project files.
@@ -100,16 +100,20 @@ Each update prepends a complete new current state snapshot. Older snapshots rema
 
 ## Completion
 
-When the task is complete, update the breadcrumb with final status:
+When the task is complete, update the breadcrumb with a full required-field snapshot and final status:
 
 ```md
 ## Current State - <local timestamp>
 
+Intent: <planning | implementation | review | commit | explanation | other>
 Current phase: complete
 Last completed step: <final outcome>
+Active files/artifacts:
+- <path or none> — <why it matters>
 Next safe action: none
 Blockers: none
 Verification status: <final verification>
+Last updated: <local timestamp>
 ```
 
 Leave the file in place for future recovery unless the user asks to delete it.

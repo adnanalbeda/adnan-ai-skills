@@ -2,3 +2,5 @@
 node_modules/
 *.log
 /.agents/state
+/docs
+/.agents
