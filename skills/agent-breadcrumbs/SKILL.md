@@ -20,7 +20,7 @@ Use one file per concurrent agent/task. Do not share one breadcrumb file between
 Choose `<agent-id>` in this order:
 
 1. Runtime/tool agent id if one is available.
-2. Fallback: timestamp plus short task slug, for example `2026-05-19-1832-lazy-plan-feature.md`.
+2. Fallback: timestamp plus short task slug, for example `2026-05-19-1832-plan-feature.md`.
 
 Create parent directories lazily when first writing the breadcrumb.
 

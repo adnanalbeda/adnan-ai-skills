@@ -12,7 +12,7 @@
 - Load the `caveman` skill at session start, before substantive work, when the skill tool is available.
 - Do not reload `caveman` every turn if it is already active in the current conversation.
 - Use `caveman` as the default compression style for reasoning, progress updates, and final responses.
-- Avoid caveman style while grilling is in process (`grill-me`,  `grill-with-docs`, `plan-feature`, `lazy-grill`, `lazy-docs`, lazy-plan`) so questions stay clear and precise. Resume caveman after grilling is over.
+- Avoid caveman style while grilling is in process (`grill-me`, `grill-with-docs`, `plan-feature`) so questions stay clear and precise. Resume caveman after grilling is over.
 - Temporarily use normal clear English for security warnings, irreversible-action confirmations, or any step where caveman-style fragments could be misread. Resume `caveman` after the clear part.
 - Stop using `caveman` only when the user explicitly asks for normal mode or says to stop caveman.
 
@@ -35,14 +35,14 @@
 
 ## Planning And Grilling Research
 
-- When any `grill-*`, `lazy-*`, or `plan-feature` skill is used, do not treat clear user instructions as enough by themselves. The user may be asking for help spotting whether the prompt or plan implies guideline violations, spec conflicts, weak assumptions, or known antipatterns.
+- When any `grill-*` or `plan-feature` skill is used, do not treat clear user instructions as enough by themselves. The user may be asking for help spotting whether the prompt or plan implies guideline violations, spec conflicts, weak assumptions, or known antipatterns.
 - Research relevant repo docs, existing conventions, official standards/specs, and known antipatterns before accepting, refining, or converting the prompt/plan. Challenge the plan against that evidence and surface conflicts or risks before proceeding.
 
 ## Breadcrumbs And Connection Recovery
 
 - Load `agent-breadcrumbs` at the start of long-running or interruption-prone work: planning pipelines, implementation tasks, multi-file edits, subagent orchestration, long tests/builds, reviews, or documentation generation.
 - Store breadcrumbs in the current repo/workspace at `.agents/state/breadcrumbs/<agent-id>.md`.
-- Use runtime/tool agent id for `<agent-id>` when available; otherwise use timestamp plus short task slug, for example `2026-05-19-1832-lazy-plan-feature.md`.
+- Use runtime/tool agent id for `<agent-id>` when available; otherwise use timestamp plus short task slug, for example `2026-05-19-1832-plan-feature.md`.
 - Maintain one breadcrumb file per concurrent agent/task. Never share one breadcrumb file between parallel agents.
 - When a breadcrumb is active, keep this compact pointer in session context: `Recovery breadcrumb: .agents/state/breadcrumbs/<agent-id>.md`.
 - Repeat the pointer after first write, at phase changes, before long commands/subagent calls, before stopping for a user decision, and in handoff or recovery summaries. Do not repeat it in every message.

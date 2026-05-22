@@ -19,8 +19,7 @@ Use this skill to discover available repo skills and MCPs before choosing a work
 
 - `brainstorming`: explore intent, requirements, and design before creative feature/component/behavior work.
 - `plan-feature`: end-to-end feature planning from idea to PRD/spec/issues/Jira docs.
-- `lazy-plan-feature`: same planning pipeline, but choice-driven and low-effort for user answers.
-- `post-grill`: same downstream artifact pipeline as `lazy-plan-feature`, but starts after grilling is complete and does not grill again.
+- `post-grill`: same downstream artifact pipeline as `plan-feature`, but starts after grilling is complete and does not grill again.
 - `implement-feature-plan`: execute an existing local PRD/spec/issue plan.
 - `to-prd`: turn conversation context into a local PRD.
 - `to-spec`: turn a PRD, plan, issue, or context into an implementation spec.
@@ -31,9 +30,7 @@ Use this skill to discover available repo skills and MCPs before choosing a work
 ## Grilling And Planning Pressure
 
 - `grill-me`: rigorous design interrogation, one question at a time.
-- `lazy-grill`: same rigor as `grill-me`, but with recommendation-first choice navigation and minimal question-tool payloads.
 - `grill-with-docs`: challenge a plan against repo docs, domain language, ADRs, and a tracked decision-answer tree.
-- `lazy-docs`: docs-aware grilling with `lazy-grill` choice flow, glossary challenge, and inline doc updates.
 - `prototype`: build throwaway prototypes for state, logic, or UI exploration.
 - `zoom-out`: get broader context when a code area or architecture is unclear.
 

@@ -21,7 +21,6 @@ Skills my AI made in this repo include:
 - `brainstorming`
 - `agent-breadcrumbs`
 - `connection-recovery`
-- `lazy-*` (`lazy-docs`, `lazy-grill`, `lazy-plan-feature`)
 - `post-grill`
 - `implement-feature-plan`
 - `plan-feature`

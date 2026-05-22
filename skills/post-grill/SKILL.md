@@ -1,11 +1,11 @@
 ---
 name: post-grill
-description: Run the same strict local planning artifact pipeline as lazy-plan-feature after grilling is already complete, without asking more grilling questions. Use when a feature idea, PRD, spec, or resolved decision set is ready for hands-off conversion into local PRD, spec, issue drafts, and Jira/Confluence docs.
+description: Run the same strict local planning artifact pipeline as plan-feature after grilling is already complete, without asking more grilling questions. Use when a feature idea, PRD, spec, or resolved decision set is ready for hands-off conversion into local PRD, spec, issue drafts, and Jira/Confluence docs.
 ---
 
 # Post Grill
 
-Turn already-resolved feature intent into local planning artifacts. This duplicates the downstream pipeline from `lazy-plan-feature`, but deliberately omits `lazy-docs` and `lazy-grill` so the agent does not lose instructions in another grilling round.
+Turn already-resolved feature intent into local planning artifacts. This duplicates the downstream pipeline from `plan-feature`, but deliberately omits another grilling round.
 
 Use this only after the product/domain/design questions are already resolved enough to plan. If required source material is missing or contradictory, stop with the smallest blocker question instead of starting a grilling process.
 
@@ -30,7 +30,7 @@ Load `agent-breadcrumbs` at the start and maintain `.agents/state/breadcrumbs/<a
 - If the user already has an approved PRD, start at `to-spec` and run the remaining pipeline hands-off.
 - If the user already has an approved spec, run both `to-issues` and `to-jira` hands-off unless the user explicitly asks to skip one.
 - If the feature is primarily an architecture cleanup or deep refactor, use `improve-codebase-architecture` before `to-spec` only when existing resolved material does not already contain a concrete architecture direction.
-- If required decisions are unresolved, ask the smallest blocker question and stop. Do not load `lazy-docs`, `lazy-grill`, `grill-me`, or `grill-with-docs` from this skill.
+- If required decisions are unresolved, ask the smallest blocker question and stop. Do not load `grill-me` or `grill-with-docs` from this skill.
 
 ## Process
 
@@ -85,7 +85,7 @@ After all planning artifacts are complete, prepare concise follow-up prompts the
 
 - Implementation with `implement-feature-plan` using the completed local spec and issue drafts.
 - More planning with `post-grill` for a related already-resolved feature or follow-up slice.
-- A separate grilling pass with `lazy-plan-feature` only if new unresolved decisions need pressure-testing.
+- A separate planning pass with `plan-feature` only if new unresolved decisions need pressure-testing.
 
 ## Completion criteria
 
