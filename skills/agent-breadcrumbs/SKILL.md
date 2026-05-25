@@ -1,6 +1,6 @@
 ---
 name: agent-breadcrumbs
-description: Maintain per-agent recovery breadcrumbs during long planning, implementation, review, or documentation tasks so interrupted work can be reconstructed after connection loss. Use before and during long-running workflows, subagent orchestration, multi-file edits, or strict planning pipelines.
+description: Maintain compact recovery breadcrumbs for long planning, implementation, review, documentation, or subagent workflows so interrupted work can be reconstructed safely. Use before and during interruption-prone tasks, multi-file edits, long verification, or planning pipelines.
 ---
 
 # Agent Breadcrumbs
@@ -52,17 +52,17 @@ Every current state snapshot must include:
 Agent: <agent-id>
 Goal: <user goal in one sentence>
 
-## Current State - <local timestamp>
+<prepend here>
+
+## <local timestamp>
 
 Intent: <planning | implementation | review | commit | explanation | other>
 Current phase: <where the work is now>
-Last completed step: <latest completed meaningful step>
 Active files/artifacts:
 - <path> — <why it matters>
 Next safe action: <one concrete next action>
 Blockers: <none | unresolved question or dependency>
 Verification status: <not run | command/result | not applicable>
-Last updated: <local timestamp>
 ```
 
 Add optional fields only when useful:
@@ -83,7 +83,6 @@ Update the breadcrumb:
 - Before risky phase changes, such as planning to implementation or editing to verification.
 - Before long tool calls, test/build commands, or subagent orchestration.
 - After subagents finish and their outputs change next steps.
-- Before stopping for a blocker or user decision.
 
 Do not update after every tiny read/search unless it changes the recovery state.
 
@@ -91,7 +90,7 @@ Each update prepends a complete new current state snapshot. Older snapshots rema
 
 ## Writing Rules
 
-- Always use the relevant caveman skill/style when writing or updating breadcrumbs. Breadcrumbs are for agents, so prefer compressed agent-readable notes over human-facing prose.
+- Keep exact field names, timestamps, paths, blockers, and verification results. Use caveman-style compression.
 - Keep the breadcrumb concise. It is a recovery index, not a transcript.
 - Prefer paths, artifact names, and concrete next actions over prose.
 - Never store secrets, credentials, tokens, or private data that is not already safe in project files.
@@ -100,16 +99,20 @@ Each update prepends a complete new current state snapshot. Older snapshots rema
 
 ## Completion
 
-When the task is complete, update the breadcrumb with final status:
+When the task is complete, update the breadcrumb with a full required-field snapshot and final status:
 
 ```md
 ## Current State - <local timestamp>
 
+Intent: <planning | implementation | review | commit | explanation | other>
 Current phase: complete
 Last completed step: <final outcome>
+Active files/artifacts:
+- <path or none> — <why it matters>
 Next safe action: none
 Blockers: none
 Verification status: <final verification>
+Last updated: <local timestamp>
 ```
 
-Leave the file in place for future recovery unless the user asks to delete it.
+Prefix the file name with `completed.` for future recovery unless the user asks to delete it.

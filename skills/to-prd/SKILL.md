@@ -1,25 +1,11 @@
 ---
 name: to-prd
-description: Turn the current conversation context into a local PRD. Use when user wants to create a PRD from the current context.
+description: Turn the current conversation context into a PRD and publish it to the project issue tracker. Use when user wants to create a PRD from the current context.
 ---
 
 This skill takes the current conversation context and codebase understanding and produces a PRD. Do NOT interview the user — just synthesize what you already know.
 
-## Local-only rule
-
-All output is local by default. Do NOT create, update, push, or publish anything to GitHub, GitLab, issue trackers, or other remote services unless the user explicitly asks for that specific remote action.
-
-The issue tracker and triage label vocabulary are only needed if the user explicitly asks you to publish remotely — run `/setup-matt-pocock-skills` if not.
-
-## Recovery breadcrumbs
-
-For non-trivial PRD creation, load `agent-breadcrumbs` and update `.agent/state/breadcrumbs/<agent-id>.md` after context gathering, before writing the PRD, and after saving it locally so `connection-recovery` can reconstruct progress after interruption.
-
-## Local file storage
-
-Store PRDs in the current repo, not in global agent config. If the repo already has a PRD or planning-doc convention, follow it. Otherwise create files lazily under `docs/prds/` using `YYYY-MM-DD-kebab-title.md`.
-
-Use lowercase ASCII kebab-case for filenames. Start the file with an H1 title, then include the PRD template. If the PRD came from an issue, spec, or conversation reference, include that source in `Further Notes` instead of encoding it in the filename.
+The issue tracker and triage label vocabulary should have been provided to you — run `/setup-matt-pocock-skills` if not.
 
 ## Process
 
@@ -31,7 +17,7 @@ A deep module (as opposed to a shallow module) is one which encapsulates a lot o
 
 Check with the user that these modules match their expectations. Check with the user which modules they want tests written for.
 
-3. Write the PRD using the template below, then save it locally using the storage rules above or present it as a local draft. If the user explicitly asks you to publish it remotely, apply the `ready-for-agent` triage label - no need for additional triage.
+3. Write the PRD using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
 
 <prd-template>
 

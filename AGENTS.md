@@ -7,49 +7,45 @@
 - Always use `pnpx` instead of `npx`.
 - The only exception is if there's a `package.json` which strict the engine or package manager to npm.
 
+## Prompt Polishing
+
+- Load `prompt-terminology-polisher` when the prompt seems fuzzy or require thinking to understand intent.
+- Preserve the user's intent and constraints. Improve grammar and technical wording, and flag uncertain terminology instead of silently guessing.
+
 ## Caveman
 
-- Load the `caveman` skill at session start, before substantive work, when the skill tool is available.
-- Do not reload `caveman` every turn if it is already active in the current conversation.
-- Use `caveman` as the default compression style for reasoning, progress updates, and final responses.
-- Avoid caveman style while grilling is in process (`grill-me`, `grill-with-docs`, `plan-feature`) so questions stay clear and precise. Resume caveman after grilling is over.
-- Temporarily use normal clear English for security warnings, irreversible-action confirmations, or any step where caveman-style fragments could be misread. Resume `caveman` after the clear part.
-- Stop using `caveman` only when the user explicitly asks for normal mode or says to stop caveman.
+- Load and use `caveman` with mode `ultra` at session start before real work, if skill tool exists.
+- Do not reload if already active.
+- Avoid `caveman` during grilling (`grill-me`, `grill-with-docs`). Keep questions clear. Auto resume after.
+- Use normal clear English for security warnings, irreversible confirmations, or any step where fragments may confuse. Resume after.
+- Use `caveman` by default for reasoning, progress, final replies.
+- Stop only when user asks for normal mode or says stop caveman.
 
-## Cavecrew
+<!-- cavecrew -->
+- Load `cavecrew` when delegating, user asks for subagents/cavecrew/context saving, or compressed agent output helps.
+- Use [cavecrew-investigator](./agents/cavecrew-investigator.md) for read-only locating: definitions, callers, refs, usage lists, broad `path:line` searches.
+- Use [cavecrew-builder](./agents/cavecrew-builder.md) for clear 1-2 file edits after target files known.
+- Use [cavecrew-reviewer](./agents/cavecrew-reviewer.md) for bug-focused diff/file review when findings-only enough.
+- Use vanilla `Explore` or reviewers when prose, architecture, rationale, or alternatives matter.
+- Use main thread for one-liners, tiny fixes, new features, 3+ file refactors, cross-cutting changes.
+- Broad search: run 2-3 `cavecrew-investigator` agents in parallel with different angles, then merge results.
+- Never use `cavecrew-builder` before files found. Never force cavecrew when terse output hurts clarity.
+<!-- cavecrew -->
 
-- Load the `cavecrew` skill when considering subagent delegation, when the user asks to delegate/spawn subagents/use cavecrew/save context, or when compressed subagent output would preserve main-context budget.
-- Use `cavecrew-investigator` for read-only code location tasks: definitions, callers, references, usage lists, and broad searches where terse `path:line` output is enough.
-- Use `cavecrew-builder` for obvious surgical edits scoped to 1-2 files after the target files are known.
-- Use `cavecrew-reviewer` for bug-focused diff or file review when findings-only output is enough.
-- Prefer vanilla `Explore` or reviewer agents when prose, architecture commentary, rationale, or alternatives are needed.
-- Prefer the main thread for one-line answers, small obvious actions, new features, 3+ file refactors, or cross-cutting changes.
-- For broad investigation, run 2-3 `cavecrew-investigator` agents in parallel with different search angles, then aggregate results in the main thread.
-- Do not use `cavecrew-builder` before locating the relevant files, and do not force cavecrew when its terse output would make user-facing results unclear.
+<!-- context7 -->
+Use Context7 MCP to fetch current documentation whenever the user asks about a library, framework, SDK, API, CLI tool, or cloud service -- even well-known ones like React, Next.js, Prisma, Express, Tailwind, Django, or Spring Boot. This includes API syntax, configuration, version migration, library-specific debugging, setup instructions, and CLI tool usage. Use even when you think you know the answer -- your training data may not reflect recent changes. Prefer this over web search for library docs.
 
-## Skill And MCP Discovery
+Do not use for: refactoring, writing scripts from scratch, debugging business logic, code review, or general programming concepts.
 
-- Load `adnan-ai-skills-guide` when deciding which repo skill or MCP to use, when multiple skills seem applicable, or when the task involves adding, removing, renaming, or changing skills/MCPs.
-- Use `adnan-ai-skills-guide` as the repo-local inventory for available skills and configured MCPs, then load the most specific matching skill or use the most authoritative MCP.
-- When any new skill or MCP is added to this repo, update `skills/adnan-ai-skills-guide/SKILL.md` in the same change. When a skill or MCP is removed, renamed, or its selection criteria changes, update the guide in the same change.
+## Steps
+
+1. Always start with `resolve-library-id` using the library name and the user's question, unless the user provides an exact library ID in `/org/project` format
+2. Pick the best match (ID format: `/org/project`) by: exact name match, description relevance, code snippet count, source reputation (High/Medium preferred), and benchmark score (higher is better). If results don't look right, try alternate names or queries (e.g., "next.js" not "nextjs", or rephrase the question). Use version-specific IDs when the user mentions a version
+3. `query-docs` with the selected library ID and the user's full question (not single words)
+4. Answer using the fetched docs
+<!-- context7 -->
 
 ## Planning And Grilling Research
 
-- When any `grill-*` or `plan-feature` skill is used, do not treat clear user instructions as enough by themselves. The user may be asking for help spotting whether the prompt or plan implies guideline violations, spec conflicts, weak assumptions, or known antipatterns.
-- Research relevant repo docs, existing conventions, official standards/specs, and known antipatterns before accepting, refining, or converting the prompt/plan. Challenge the plan against that evidence and surface conflicts or risks before proceeding.
-
-## Breadcrumbs And Connection Recovery
-
-- Load `agent-breadcrumbs` at the start of long-running or interruption-prone work: planning pipelines, implementation tasks, multi-file edits, subagent orchestration, long tests/builds, reviews, or documentation generation.
-- Store breadcrumbs in the current repo/workspace at `.agents/state/breadcrumbs/<agent-id>.md`.
-- Use runtime/tool agent id for `<agent-id>` when available; otherwise use timestamp plus short task slug, for example `2026-05-19-1832-plan-feature.md`.
-- Maintain one breadcrumb file per concurrent agent/task. Never share one breadcrumb file between parallel agents.
-- When a breadcrumb is active, keep this compact pointer in session context: `Recovery breadcrumb: .agents/state/breadcrumbs/<agent-id>.md`.
-- Repeat the pointer after first write, at phase changes, before long commands/subagent calls, before stopping for a user decision, and in handoff or recovery summaries. Do not repeat it in every message.
-- Update breadcrumbs at task start, after each meaningful completed step, before risky phase changes, before long commands/subagent calls, after subagents return, and before stopping for a blocker or user decision.
-- Breadcrumbs must include: `Intent`, `Goal`, `Current phase`, `Last completed step`, `Active files/artifacts`, `Next safe action`, `Blockers`, `Verification status`, and `Last updated`.
-- Keep breadcrumbs concise. They are recovery indexes, not transcripts. Never store secrets, credentials, tokens, or private data.
-- Do not commit breadcrumb files unless the user explicitly asks.
-- Load `connection-recovery` when the user says the connection dropped, the agent stopped mid-task, work needs to be picked back up, or current context may be incomplete after interruption.
-- During recovery, use current conversation memory first, parse any `Recovery breadcrumb:` pointer, verify it matches the current request, then fall back to breadcrumb discovery, files, artifacts, worktree state, and relevant logs/tests before continuing.
-- Recovery must summarize reconstructed state and ask before continuing. Do not silently continue after reconnect.
+- On `grill-*`: don not trust prompt alone. Find hidden violations, conflicts, weak assumptions, antipatterns.
+- Research docs/conventions/specs first. Challenge plan with evidence. Surface risks before proceed.

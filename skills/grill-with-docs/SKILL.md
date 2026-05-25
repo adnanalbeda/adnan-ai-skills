@@ -5,11 +5,13 @@ description: Grilling session that challenges your plan against the existing dom
 
 <what-to-do>
 
-Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. For each answer, explain the decision effect and provide example or demo.
+Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
 
 For every question, suggest at least two concrete answer options. Mark exactly one as recommended, put it first unless repo evidence makes another ordering clearer, and use this format:
 
 ````md
+---------- option a ----------
+
 1. option-a (recommended)
 description: <what this chooses>
 example:
@@ -17,6 +19,8 @@ example:
 <small concrete example or demo>
 ```
 reason: <why this is recommended>
+
+---------- option b ----------
 
 2. option-b
 description: <what this chooses>
@@ -30,6 +34,31 @@ reason: <why someone might choose this instead>
 Ask the questions one at a time, waiting for feedback on each question before continuing.
 
 If a question can be answered by exploring the codebase, explore the codebase instead.
+
+Before starting grilling session of an aspect, write brief summary about it, and estimated number of questions:
+
+````
+current aspect: ab
+brief: abc
+estimated no. of questions: 00
+````
+
+When aspect is over and moving into new aspect, write brief summary of previous aspect,  estimated number of questions and real number of questions, and a summary about the current, also estimated number of questions. 
+
+````
+previous aspect: ab
+brief: abc
+estimated no. of questions: 00
+real no. of questions: 00
+summary:
+abcd
+
+---
+
+current aspect: ab
+brief: abc
+estimated no. of questions: 00
+````
 
 </what-to-do>
 
@@ -62,13 +91,17 @@ If a `CONTEXT-MAP.md` exists at the root, the repo has multiple contexts. The ma
 /
 ├── CONTEXT-MAP.md
 ├── docs/
+├── docs/
+│   ├── grill-answers-tree/           ← system-wide grilling answers
 │   └── adr/                          ← system-wide decisions
 ├── src/
 │   ├── ordering/
 │   │   ├── CONTEXT.md
+│   │   ├── docs/grill-answers-tree   ← context-specific grilling answers
 │   │   └── docs/adr/                 ← context-specific decisions
 │   └── billing/
 │       ├── CONTEXT.md
+│       ├── docs/grill-answers-tree
 │       └── docs/adr/
 ```
 
@@ -97,13 +130,6 @@ When the user states how something works, check whether the code agrees. If you 
 When a term is resolved, update `CONTEXT.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
 
 `CONTEXT.md` should be totally devoid of implementation details. Do not treat `CONTEXT.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
-
-### Track the decisions tree.
-
-For each grilling session, create a file appropriate for the topic of discussion under `docs/grill-answers-tree/`.
-After each concrete answer, write the question and the answer in it.
-
-If the topic of discussion has two or more aspects that need discussion, define these aspects, mention the current one as open and others as deferred until in scope of discussion. Use the format in [DECISION-TREE-FORMAT.md](./DECISION-TREE-FORMAT.md).
 
 ### Offer ADRs sparingly
 

@@ -1,33 +1,13 @@
 ---
 name: to-issues
-description: Break a plan, spec, or PRD into local independently-grabbable issue drafts using tracer-bullet vertical slices. Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues.
+description: Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tracer-bullet vertical slices. Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues.
 ---
 
 # To Issues
 
 Break a plan into independently-grabbable issues using vertical slices (tracer bullets).
 
-## Local-only rule
-
-All output is local by default. Do NOT create, update, push, or publish anything to GitHub, GitLab, issue trackers, or other remote services unless the user explicitly asks for that specific remote action.
-
-The issue tracker and triage label vocabulary are only needed if the user explicitly asks you to publish remotely — run `/setup-matt-pocock-skills` if not.
-
-## Recovery breadcrumbs
-
-For non-trivial issue breakdowns, load `agent-breadcrumbs` and update `.agent/state/breadcrumbs/<agent-id>.md` after context gathering, slice drafting, user approval or assumed approval in a strict pipeline, and local issue-file creation so `connection-recovery` can reconstruct progress after interruption.
-
-## Local file storage
-
-Store issue drafts in the current repo, not in global agent config. If the repo already has an issue-draft or planning-doc convention, follow it.
-
-If the issues are derived from a PRD or spec, group them under `docs/issues/<source-doc-name>/`, where `<source-doc-name>` is the source document filename without `.md`. Example: issues for `docs/prds/2026-05-19-checkout-flow.md` go under `docs/issues/2026-05-19-checkout-flow/`.
-
-If there is no source PRD or spec, create files lazily under `docs/issues/YYYY-MM-DD-kebab-title/`.
-
-Create one file per issue draft using dependency order and lowercase ASCII kebab-case: `01-kebab-title.md`, `02-kebab-title.md`, etc. If useful, create `README.md` in the same folder as an index with source context, dependency order, and links to each draft.
-
-Until the user explicitly asks to publish remotely, use local filenames in `Blocked by` instead of remote issue identifiers.
+The issue tracker and triage label vocabulary should have been provided to you — run `/setup-matt-pocock-skills` if not.
 
 ## Process
 
@@ -69,11 +49,11 @@ Ask the user:
 
 Iterate until the user approves the breakdown.
 
-### 5. Save local issue drafts
+### 5. Publish the issues to the issue tracker
 
-For each approved slice, save a local issue draft using the storage rules above or present it as a local draft. Use the issue body template below. These issues are considered ready for AFK agents, but do not publish them remotely unless the user explicitly asks.
+For each approved slice, publish a new issue to the issue tracker. Use the issue body template below. These issues are considered ready for AFK agents, so publish them with the correct triage label unless instructed otherwise.
 
-Order issue drafts by dependency order (blockers first). If publishing is explicitly requested, publish in that order so you can reference real issue identifiers in the "Blocked by" field.
+Publish issues in dependency order (blockers first) so you can reference real issue identifiers in the "Blocked by" field.
 
 <issue-template>
 ## Parent

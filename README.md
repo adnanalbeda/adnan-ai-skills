@@ -7,6 +7,7 @@ Personal AI agent skills and shared agent config, copied from the current global
 - `skills/` - installable skill folders, each with `SKILL.md`
 - `AGENTS.md` - global agent instructions
 - `config/opencode/opencode.json` - OpenCode MCP config snapshot
+- `config/opencode/agents/` - OpenCode custom subagent definitions, including cavecrew agents
 - `config/agents/skill-lock.json` - captured global skill lock metadata
 
 ## AI-Made Skills
@@ -24,6 +25,7 @@ Skills my AI made in this repo include:
 - `post-grill`
 - `implement-feature-plan`
 - `plan-feature`
+- `prompt-terminology-polisher`
 
 Other skills in `skills/` may also differ from official or upstream versions. This repo keeps my tailored variants for my own workflows, preferences, and agent setup.
 

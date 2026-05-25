@@ -1,6 +1,6 @@
 ---
 name: connection-recovery
-description: Recover after connection loss or interrupted agent work by using current conversation memory, agent breadcrumbs, worktree state, artifacts, and verification results to reconstruct where work stopped and ask before continuing.
+description: Reconstruct interrupted work from conversation memory, breadcrumbs, worktree state, artifacts, logs, and verification results, then summarize current state before continuing. Use after connection loss, stopped agent work, or incomplete context.
 ---
 
 # Connection Recovery
@@ -87,4 +87,4 @@ Use only the relevant checks for the task:
 
 After the user approves the recommended next action, continue using the relevant original skill or workflow. If the recovered task is long-running, load `agent-breadcrumbs` and update the breadcrumb before continuing.
 
-If the next action is unclear, ask one lazy, bounded question with the recommended path first.
+If the next action is unclear, ask one bounded question with the recommended path first.

@@ -14,6 +14,7 @@ Create `docs/grill-answers-tree/` lazily when the first concrete answer is recor
 - Topic: {short topic name}
 - Started: {YYYY-MM-DD}
 - Status: open
+- Mode: unattended agent-selected answers
 - Estimated No. of Question: {approx no. of questions - estimate without deep think}
 - Actual No. of Questions: {add real number of question after the session is over for stats compare}
 
@@ -29,7 +30,11 @@ Create `docs/grill-answers-tree/` lazily when the first concrete answer is recor
 
 #### Q1. {Question}
 
-Answer: {Concrete answer}
+Answer: {Concrete selected answer}
+
+Selected by: agent comparison
+
+Evidence: {Optional strongest evidence, preferably paths/lines when available}
 
 Notes: {Optional clarification, only when needed}
 
@@ -43,10 +48,10 @@ Deferred because: {Optional branch or aspect skipped because of this answer}
 ## Rules
 
 - **Record only concrete answers.** Do not write tentative exploration, rejected live options, or transcript-like discussion.
-- **Keep entries minimal.** Each entry needs `Question` and `Answer`; add `Notes`, `Depends on`, `Unlocks`, or `Deferred because` only when they clarify real branching.
+- **Keep entries minimal.** Each entry needs `Question`, `Answer`, and `Selected by`; add `Evidence`, `Notes`, `Depends on`, `Unlocks`, or `Deferred because` only when they clarify real branching.
 - **Use aspects as the main structure.** When the topic has two or more aspects, list all known aspects up front and mark each as `open`, `deferred`, or `resolved`.
 - **Track one active aspect.** Mark the current aspect as `open`; mark later aspects as `deferred until ...` until they become in scope.
-- **Update after each answer.** After the user gives a concrete answer, append or update the relevant Q/A entry before asking the next question.
+- **Update after each selected answer.** After the comparison subagent selects a concrete answer and the main interviewer accepts it, append or update the relevant Q/A entry before asking the next question.
 - **Prefer durable wording.** Use terms and decisions that will still make sense after the conversation ends; avoid references like "as above" or "the current option".
 - **Do not duplicate ADRs.** If a decision also deserves an ADR, keep this file to the Q/A record and create the ADR separately using `ADR-FORMAT.md`.
 
